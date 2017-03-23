@@ -1407,7 +1407,8 @@ function do_upload_databases($dir = 'upload')
       if (is_file($file))
          {
          $transfer_mode = (preg_match('~\.(sqlite|db|database)$~', $file)) ? FTP_BINARY : FTP_ASCII;
-         echo 'File ' . $file . ((ftp_put($conn_id, $ftp_root_databases . preg_replace('~^'.$local_dir_databases.'\/~', '', $file), $file, $transfer_mode)) ? unlink("$file").' загружен' : ' не загружен')."\n";
+         //echo 'File ' . $file . ((ftp_put($conn_id, $ftp_root_databases . preg_replace('~^'.$local_dir_databases.'\/~', '', $file), $file, $transfer_mode)) ? unlink("$file").' загружен' : ' не загружен')."\n";
+		 echo 'File ' . $file . ((ftp_put($conn_id, $ftp_root_databases . preg_replace('~^'.$local_dir_databases.'\/~', '', $file), $file, $transfer_mode)) ? ' загружен' : ' не загружен')."\n";
          }
       else    
          do_upload_databases($file);
@@ -1429,7 +1430,8 @@ function do_upload_databases2($dir = 'upload')
       if (is_file($file))
          {
          $transfer_mode = (preg_match('~\.(sqlite|db|database)$~', $file)) ? FTP_BINARY : FTP_ASCII;
-         echo 'File ' . $file . ((ftp_put($conn_id, $ftp_root_databases2 . preg_replace('~^'.$local_dir_databases2.'\/~', '', $file), $file, $transfer_mode)) ? unlink("$file").' загружен' : ' не загружен')."\n";
+         //echo 'File ' . $file . ((ftp_put($conn_id, $ftp_root_databases2 . preg_replace('~^'.$local_dir_databases2.'\/~', '', $file), $file, $transfer_mode)) ? unlink("$file").' загружен' : ' не загружен')."\n";
+		  echo 'File ' . $file . ((ftp_put($conn_id, $ftp_root_databases2 . preg_replace('~^'.$local_dir_databases2.'\/~', '', $file), $file, $transfer_mode)) ? ' загружен' : ' не загружен')."\n";
          }
       else    
          do_upload_databases2($file);
