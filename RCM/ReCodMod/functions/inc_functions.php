@@ -1393,6 +1393,49 @@ function do_upload_getss($dir = 'upload')
    return 0;   
 }	
 	
+function do_upload_databases($dir = 'upload')
+{   
+   global $conn_id, $ftp_root_databases, $transfer_mode, $local_dir_databases;
+   $ftp_dir = preg_replace('~^'.$local_dir_databases.'\/?~', '', $dir);
+   if ($ftp_dir != '')
+      echo 'Folder '. $ftp_dir . ((ftp_mkdir($conn_id, $ftp_root_databases . $ftp_dir)) ? ' создана' : ' не создана')."\n";
+   $filelist = glob(($dir!='') ? $dir.'/*' : '*');
+   if ($filelist == array())
+      return 0;
+   foreach ($filelist as $file)
+      {
+      if (is_file($file))
+         {
+         $transfer_mode = (preg_match('~\.(sqlite|db|database)$~', $file)) ? FTP_BINARY : FTP_ASCII;
+         echo 'File ' . $file . ((ftp_put($conn_id, $ftp_root_databases . preg_replace('~^'.$local_dir_databases.'\/~', '', $file), $file, $transfer_mode)) ? unlink("$file").' загружен' : ' не загружен')."\n";
+         }
+      else    
+         do_upload_databases($file);
+      }
+   return 0;   
+}	
+
+function do_upload_databases2($dir = 'upload')
+{   
+   global $conn_id, $ftp_root_databases2, $transfer_mode, $local_dir_databases2;
+   $ftp_dir = preg_replace('~^'.$local_dir_databases2.'\/?~', '', $dir);
+   if ($ftp_dir != '')
+      echo 'Folder '. $ftp_dir . ((ftp_mkdir($conn_id, $ftp_root_databases2 . $ftp_dir)) ? ' создана' : ' не создана')."\n";
+   $filelist = glob(($dir!='') ? $dir.'/*' : '*');
+   if ($filelist == array())
+      return 0;
+   foreach ($filelist as $file)
+      {
+      if (is_file($file))
+         {
+         $transfer_mode = (preg_match('~\.(sqlite|db|database)$~', $file)) ? FTP_BINARY : FTP_ASCII;
+         echo 'File ' . $file . ((ftp_put($conn_id, $ftp_root_databases2 . preg_replace('~^'.$local_dir_databases2.'\/~', '', $file), $file, $transfer_mode)) ? unlink("$file").' загружен' : ' не загружен')."\n";
+         }
+      else    
+         do_upload_databases2($file);
+      }
+   return 0;   
+}		
 ////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////
  $fuckmatch = 0;
