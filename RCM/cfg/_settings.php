@@ -21,13 +21,19 @@ $ftp_server    = '72.43.26.70';
 $ftp_login     = 'ruoikketkhgkii';
 $ftp_password  = '7BpKkjnjaPSk8';
 //Local path to logs
-$local_dir = '/media/Windows/Game_Servers/RCM/COD4-original/ReCodMod/x_logs/';
+$local_dir = '/media/Game_Servers/RCM/COD1_1_4_RO_SQL3/ReCodMod/x_logs/';
 //Local path to screenshots
-$local_dir_getss = '/home/larocca/.callofduty4/screenshots/';
-///SERVER ROOT FOLDERS, FOR LOGS $ftp_root, FOR IMAGES $ftp_root_getss. 
-///NOTE - ALL THIS FOLDERS NEED MAKE IN YOUR FTP SERVER, WHICH YOU ADD HERE
-$ftp_root      = '/domains/recod.ru/public_html/rcm_logfiles/LOGS/';
-$ftp_root_getss   = '/domains/recod.ru/public_html/rcm_logfiles/GETSS/';
+$local_dir_getss = '';
+//Local paths to databases
+$local_dir_databases = '/media/Game_Servers/RCM/COD1_1_4_RO_SQL3/ReCodMod/databases/';
+$local_dir_databases2 = '/media/Game_Servers/RCM/BAN_DATABASE/';
+
+
+///SERVER ROOT FOLDERS, FOR LOGS $ftp_root, FOR IMAGES $ftp_root_getss.
+$ftp_root      = '/recod.ru/public_html/rcm_logfiles/COD1_1_4_RO_SQL3/LOGS/';
+$ftp_root_getss   = '/recod.ru/public_html/rcm_logfiles/COD1_1_4_RO_SQL3/GETSS/';
+$ftp_root_databases   = '/recod.ru/public_html/rcm_logfiles/COD1_1_4_RO_SQL3/DATABASES/';
+$ftp_root_databases2   = '/recod.ru/public_html/rcm_logfiles/COD1_1_4_RO_SQL3/BAN_DATABASE/';
 
 
 //Fast geo welcome when player connecting - 1 / When player connected - 0
