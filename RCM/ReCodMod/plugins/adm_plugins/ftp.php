@@ -292,7 +292,7 @@ $db = NULL;
 }  
 
 
-if (strpos($msgr, $ixz.'ftp db2') !== false){
+if (strpos($msgr, $ixz.'ftp bans') !== false){
 ////////////////////////////////////Change gametype
   
  
