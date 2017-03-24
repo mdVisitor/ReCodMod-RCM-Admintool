@@ -15,7 +15,7 @@ FOR Disable => $serverinfo_adress = 0;
 $serverinfo_adress = "192.168.1.102:28960;192.168.1.102:28961";
 
 
-
+//////////////////////////////////////////////////////////////////////////////////////
 //FTP SENT FILES TO ANOTHER WEB HOSTING or localhost!
 $ftp_server    = '72.43.26.70';
 $ftp_login     = 'ruoikketkhgkii';
@@ -28,13 +28,22 @@ $local_dir_getss = '';
 $local_dir_databases = '/media/Game_Servers/RCM/COD1_1_4_RO_SQL3/ReCodMod/databases/';
 $local_dir_databases2 = '/media/Game_Servers/RCM/BAN_DATABASE/';
 
-
 ///SERVER ROOT FOLDERS, FOR LOGS $ftp_root, FOR IMAGES $ftp_root_getss.
 $ftp_root      = '/recod.ru/public_html/rcm_logfiles/COD1_1_4_RO_SQL3/LOGS/';
 $ftp_root_getss   = '/recod.ru/public_html/rcm_logfiles/COD1_1_4_RO_SQL3/GETSS/';
 $ftp_root_databases   = '/recod.ru/public_html/rcm_logfiles/COD1_1_4_RO_SQL3/DATABASES/';
 $ftp_root_databases2   = '/recod.ru/public_html/rcm_logfiles/COD1_1_4_RO_SQL3/BAN_DATABASE/';
 
+////////////////////////////////////ftp autouploader////////////////////////////////////////////////
+// DATABASES auto Backup
+// to do  -> minimal time 5 sec to ftp host (chat.logs) 500kb autofile, 
+// databases minimal time upload 2 hours
+// ban database minimal time 20 minutes
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////
 
 //Fast geo welcome when player connecting - 1 / When player connected - 0
 $fast_geowelcome = 1;
@@ -149,8 +158,7 @@ $registerx = '0';
  
  // DATABASES auto Backup
  $cht_databases = '24'; // After where number 24 is 24 hours (ONLY HOURS SUPPORT - MIN: 1, MAX: 99940) , it's make backup in x_logs/backup/
- 
-//*******************************
+ //*******************************
 
 
 //********************** AUTO SCREENSHOTS ***************************
