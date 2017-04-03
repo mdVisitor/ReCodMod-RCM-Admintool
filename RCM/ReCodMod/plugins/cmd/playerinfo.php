@@ -149,16 +149,79 @@ echo '  '.substr($tfinishh = (microtime(true) - $start),0,7);
 	}}}}
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+    if ((strpos($user_message, $ixz . 'ip') !== false) && ($x_number != 1)) {
+        if (strpos($x_namex, $x_nickx) !== false) {
+            usleep($sleep_rcon);
+            if ((($game_patch == 'cod2') || ($game_patch == 'cod4') || ($game_patch == 'cod5')) && (!empty($guidn)))
+                rcon('tell ' . $i_id . ' ^2My IP:^3 ' . $i_ip . ' ^2My GUID:^3 ' . $guidn, '');
+            else if ($game_patch == 'cod1_1.1')
+                rcon('say ^2My IP:^3 ' . $i_ip, '');
+            else
+                rcon('tell ' . $i_id . ' ^2My IP:^3 ' . $i_ip, '');
+            AddToLogInfo("[" . $datetime . "] IP: " . $i_ip . " (" . $x_namex . ") (" . $user_message . ") reason: I");
+            ++$x_number;
+            //fclose($fpX);
+            //fclose($connect);	
+            echo '    ' . substr($tfinishh = (microtime(true) - $start), 0, 7);
+            ++$x_stop_lp; //return;	
+        }
+    }
+
+else if ((strpos($user_message, $ixz . 'nextmap') !== false) && ($x_number != 1)) {
+        //$yomapratation = 0;
+        usleep($sleep_rcon * 2);
+        require $cpath . 'ReCodMod/functions/getinfo/sv_mapRotation.php';
+        fclose($connx);
+        /*
+        $pos = strripos($mapslisst, $mmapname);
+        
+        if ($pos === false) {
+        echo "К сожалению, ($mmapname) не найдена в ($mapslisst)";
+        } else {
+        echo "Поздравляем!\n";
+        echo "($mmapname) найдено в ($mapslisst) в позиции ($pos)";
+        }
+        */
+        $mapslisst = str_replace($mmapname, "^2" . $mmapname . "^7", $mapslisst);
+        usleep($sleep_rcon);
+        rcon('say ^6 ^1Map ^7' . $mapslisst . '', '');
+        AddToLogInfo("[" . $datetime . "] nextmap: " . $i_ip . " (" . $x_namex . ") (" . $user_message . ")");
+        ++$x_number;
+        echo '  ' . substr($tfinishh = (microtime(true) - $start), 0, 7);
+        ++$x_stop_lp; //return;		
+    }
+
+ if ((strpos($user_message, $ixz . 'time') !== false) && ($x_number != 1)) {
+        if (strpos($x_namex, $x_nickx) !== false) {
+            //include($cpath."ReCodMod/geoip_bases/MaxMD/timezone/timezone.php");	
+            $gi     = geoip_open($cpath . "ReCodMod/geoip_bases/MaxMD/GeoLiteCity.dat", GEOIP_STANDARD);
+            $record = geoip_record_by_addr($gi, $i_ip);
+            $xxxnw  = ($record->country_name);
+            //Calculate the timezone and local time
+            try {
+                //Create timezone
+                $user_timezone        = new DateTimeZone(get_time_zone($record->country_code, ($record->region != '') ? $record->region : 0));
+                //Create local time
+                $user_localtime       = new DateTime("now", $user_timezone);
+                $user_timezone_offset = $user_localtime->getOffset();
+            }
+            //Timezone and/or local time detection failed
+            catch (Exception $e) {
+                $user_timezone_offset = 7200;
+                $user_localtime       = new DateTime("now");
+            }
+            echo 'User local time: ' . $user_localtime->format('H:i:s');
+            //echo 'Timezone GMT offset: ' . $user_timezone_offset . '<br/>';
+            $serverdate = date('M-d H:i:s');
+            usleep($sleep_rcon * 2);
+            rcon('say ^6 ^7' . $chistx . ' ^3Geo: ^7' . $xxxnw . ' ^3' . $infootime . ':^7 ' . $user_localtime->format('H:i:s') . ' ^3' . $sunnsett . ': ^7' . date_sunset(time(), SUNFUNCS_RET_STRING, $record->latitude, $record->longitude, ini_get("date.sunset_zenith"), ($user_timezone_offset / 3600)) . ' ^3' . $inforsun . ': ^7' . date_sunrise(time(), SUNFUNCS_RET_STRING, $record->latitude, $record->longitude, ini_get("date.sunrise_zenith"), ($user_timezone_offset / 3600)) . ' ^3' . $infoservv . ': ^7' . $serverdate, '');
+            AddToLogInfo("[" . $datetime . "] Time: " . $i_ip . " (" . $x_namex . ") (" . $user_message . ")");
+            ++$x_number;
+            //f//close($connect);	
+            echo '  -time-  ' . substr($tfinishh = (microtime(true) - $start), 0, 7);
+            ++$x_stop_lp; //return;	
+        }
+    }	
 }
 
 		 

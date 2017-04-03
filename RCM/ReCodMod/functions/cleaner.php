@@ -226,7 +226,7 @@ exit;
 $mplogfiler = sevenofff($mplogfilenew);
 AddToparsser($mplogfiler);
 
-if(!file_exists($mplogfilexl))
+if((!file_exists($mplogfilexl)) && (!preg_match('/ftp:/', $mplogfilexl, $xnon)))
 {echo "\n error! 
 \n DO NOT STARTING! 
 \n YOU HAVE PROBLEM WITH settings 
@@ -253,7 +253,7 @@ else{
 }
 
 
-if(!file_exists($mplogfilexl)) 	
+if((!file_exists($mplogfilexl)) && (!preg_match('/ftp:/', $mplogfilexl, $xnon)))
 //{echo " logfile ok \n\n";
 //}
 //else 

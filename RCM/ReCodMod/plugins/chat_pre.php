@@ -63,11 +63,15 @@ foreach ($matnie as $badword) {
                 if (strlen($hhm[0][$z]) == 1) {
                     ++$fjk;
                     if ($fjk > 5) {
+						if(!empty($player_msg)){
+							if(!empty($bdwww)){
                         if (strpos($player_msg, $bdwww) !== false) {
                             echo ' DETECTED WORD!!! ';
                             echo $player_msg . " == " . $bdwww;
                             $x_mat = false;
                         }
+					   }
+						}
                     }
                 }
             }
@@ -80,13 +84,14 @@ if ($x_mat != false) {
 		   if(preg_match( '/^([а-яА-ЯЁёa-zA-Z0-9_]+)$/u', $yesorno))
 		   {
                 if (strlen($yesorno) > 4) {
-                    
+                    if(!empty($player_msg)){
+						if(!empty($bdwww)){
                         if (strpos($player_msg, $bdwww) !== false) {
                             echo ' DETECTED WORD!!! ';
                             echo $player_msg . " == " . $bdwww;
                             $x_mat = false;
-                        
-                    }
+						} 
+                    }}
                 }
             }
 	   }
