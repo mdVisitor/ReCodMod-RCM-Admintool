@@ -14,8 +14,9 @@ mb_internal_encoding('UTF-8');
 mb_http_output('UTF-8'); 
 mb_http_input('UTF-8'); 
 mb_regex_encoding('UTF-8');
-
+	
 $spps = 221000;
+
 usleep(7000);
 function hx($sc)
  {
@@ -34,6 +35,11 @@ include($cpath . "ReCodMod/geoip_bases/MaxMD/geoipcity.inc");
 include($cpath . "ReCodMod/geoip_bases/MaxMD/timezone/timezone.php");
 
     ini_set("log_errors", "1");
+
+ if (preg_match('/ftp:/', $mplogfile, $xnon))
+   $spps = 470000;
+   else	
+     $spps = 221000;
 	
 	$xerrrors = ($cpath . "ReCodMod/x_errors/$filename");
 	
@@ -94,6 +100,9 @@ $spps = 721000;
           $spps = 40000;
         else if ($plyr_cnt <= 128)
           $spps = 20000;
+	  
+	  if (preg_match('/ftp:/', $mplogfile, $xnon))
+           $spps = 470000;
 	  
  $cron_time=filemtime($cpath."ReCodMod/x_cron/cron_time");        //получаем время последнего изменения файла
 if (time()-$cron_time>=600) {             //сравниваем с текущим временем - 10 минут
@@ -630,6 +639,8 @@ $pos = strpos($parseline, '');
                //   Continue;
                 if ($x_stop_lp == 0)
                  {
+					$x_namex = clearnamex($i_name);
+                    $x_nickx = clearnamex($nickr);
                   require $cpath . 'ReCodMod/plugins/cmd/status.php';
                   require $cpath . 'ReCodMod/plugins/cmd/player_report.php';
                   require $cpath . 'ReCodMod/plugins/cmd/playerinfo.php';
