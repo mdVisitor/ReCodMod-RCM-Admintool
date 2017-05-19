@@ -11,11 +11,12 @@ $pl_msg  = iconv("windows-1251", "utf-8", $msgr);
 $player_msg  = mb_strtolower($pl_msg);
 $yesorno = antimat($pl_msg);
 
+if ($game_patch != 'cod1_1.1'){
 if (strpos($yesorno, '%CENSORED%') !== false) {
     $x_mat = false;
     echo "\n " . $pl_msg;
     echo " ALARM %CENSORED%";
-}
+}}
 
 
 
