@@ -11,7 +11,7 @@ $commands = array($mistake,
 
 ///MAIN CMD AND FUN + HELP COMMANDS
 $funcommands = array('cmd', 'fun', 
-'chea', 'sps', 'haker', 'wallhack', 'tits', 'hello', 'fps', 'ping',
+'chea', 'sps', 'haker', 'wallhack', 'tits', 'hello', 'fps', 'fov', 'ping',
 'hack', 'aimbot', 'ty', 'thx', 'gg', 'hi', 'hi server', 'bb', 'xxx', 'xl',
 'ch', 'vdk', 'dr', 'govn', 'gavn', 'bl', 'gl', 'stfu', 'afk', 'ny', 'mc', '#fp', 'admin',
 'gj', 'shit', 'wp', 'n1');
