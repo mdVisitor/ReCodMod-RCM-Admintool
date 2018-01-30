@@ -129,8 +129,6 @@ In x_logs folder after install and few days work, you can find chat, stats.... l
 
 Skype: larocca2012  
 
-E-mail: la.rocca@yandex.com or la.rocca@ya.ru  
-
 Website: http://recod.ru/forum/ 
 
 Test help: #coP(COD1 1.1 sniper-clan.enjin.com) , KarTaL (COD1 1.5), G mAsTeR (COD4x), (COD4x nuclearwars.ru), a6pakaTa6pa (COD4x zona-ato-game.ru)
