@@ -1,7 +1,7 @@
 <?php 
 
-////BAD NAMES KICK - 1, OFF - 0
-$BadNames = 1;
+////BAD NAMES KICK - true, OFF - false
+$BadNames = true;
 
 //Names
 $badfinder = array("hueta", "tr@h", "tr@x", "pindos", "eblan", "pidar", "pidor", "uebak", "m@m", "mamku", 
