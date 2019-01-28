@@ -14,6 +14,21 @@ mb_internal_encoding('UTF-8');
 mb_http_output('UTF-8'); 
 mb_http_input('UTF-8'); 
 mb_regex_encoding('UTF-8');
+
+      $version = SQLite3::version();
+	  $arr['description'] = 'SQLite 3';    
+      $arr['version'] = $version['versionString'];
+	  
+	      if(empty($arr['version']))
+		  die("\n\r Please install SQLITE3! [ sudo apt-get install php7.0-sqlite ]");
+	  
+	  	  if(empty($arr['version']))
+		  die("\n\r Please install SQLITE3! [ sudo apt-get install php7.0-sqlite3 ]");
+
+       if (stripos(curl_version()['version'], "version") !== false) { 
+       if (!curl_version()['features'] & CURL_VERSION_KERBEROS4) {
+          die("\n\r CURL is not available!. [ sudo apt-get install php7.0-curl ] ");	
+                     }}	 
 	
 $spps = 221000;
 
