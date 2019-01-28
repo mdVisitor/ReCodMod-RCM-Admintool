@@ -696,7 +696,13 @@ fclose($connect);
 					  if(($kl/$dth) > 0.49)
 					  rcon('getss '. $idkill , '');
 				   }else if($auto_getss == 2)	{
-				  rcon('getss '. $idkill , '');
+				  
+			    if ($game_patch == 'cod4'){
+                           usleep($sleep_rcon*2);	
+                                  rcon('getss all', '');	
+                                      }else
+			   rcon('getss '. $idkill , '');
+			   
 				   }
 				    }
 			    ////////////////AUTO SCREENSHOTS		
