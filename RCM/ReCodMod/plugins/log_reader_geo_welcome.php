@@ -663,8 +663,8 @@ usleep($sleep_rcon);
                     //echo ' vooooooords   '.$tfinishh = (microtime(true) - $start);
                 }
             }
-                        if ((($rules_kick_bad_named) && (array_search(strtolower($i_name), $rules_badname, true) !== false) && ($i_ping != 111) && ($i_ping != '999'))
-                          ||(($rules_kick_bad_named) && (array_search(strtolower($i_name), $badfinder, true) !== false) && ($i_ping != 111) && ($i_ping != '999')))  
+            if ((($rules_kick_bad_named) && (array_search(strtolower($i_name), $rules_badname, true) !== false) && ($i_ping != 111) && ($i_ping != '999'))
+              ||(($BadNames) && (array_search(strtolower($i_name), $badfinder, true) !== false) && ($i_ping != 111) && ($i_ping != '999')))
 			{
                 usleep($sleep_rcon);
                 if ($game_ac == '0') {
