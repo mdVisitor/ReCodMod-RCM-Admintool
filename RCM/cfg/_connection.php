@@ -8,4 +8,11 @@ $server_port = '28960';
 $server_rconpass = '123';
 //game log file
 $mplogfile = "C:\Games\Call of Duty 4 - Modern Warfare\mods\promodzzz\games_mp.log";  //game log file
+
+											
+//=======================================================================
+// Create new webhook in your Discord channel settings and copy&paste URL
+$webhookurl = "https://discordapp.com/api/webhooks/.............";
+
+
 ?>
