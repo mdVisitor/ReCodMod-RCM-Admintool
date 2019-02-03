@@ -109,7 +109,8 @@ if ($x_stop_lp == 0) {
                                                     $servernamex = $server_ip;
                                                 usleep($sleep_rcon);
                                                 $servernamex = afdasfawf(repooort($servernamex));
-                                                if ($curl = curl_init()) {
+                                              /*  
+												if ($curl = curl_init()) {
                                                     curl_setopt($curl, CURLOPT_URL, 'http://recod.ru/cod_report_master/codsender.php?emailz=' . $admin_emaill[$rotxv] . '&mpass=' . $gmailpass . '&sended=' . repooort($nickrn) . '%' . repooort($msgrn) . '&userip=' . $iprepp . '&serverip=' . matmat($servernamex) . ':' . $server_port);
                                                     curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
                                                     curl_setopt($curl, CURLOPT_POST, true);
@@ -118,6 +119,31 @@ if ($x_stop_lp == 0) {
                                                     echo $out;
                                                     curl_close($curl);
                                                 }
+											 */	
+												
+ 
+$msg = 'Nickname: ' 
+. repooort($nickrn) . ' Message: ' . repooort($msgrn) 
+. ' UserIp: ' . $iprepp . ' ServerIp: ' . repooort($servernamex) 
+. ':' . $server_port;
+
+$json_data = array ('content'=>"$msg");
+$make_json = json_encode($json_data);
+
+ if ($ch = curl_init( $webhookurl )) {
+curl_setopt( $ch, CURLOPT_SSL_VERIFYPEER, false); // ---
+curl_setopt( $ch, CURLOPT_SSL_VERIFYHOST, false); // ---
+curl_setopt( $ch, CURLOPT_POST, 1);
+curl_setopt( $ch, CURLOPT_POSTFIELDS, $make_json);
+curl_setopt( $ch, CURLOPT_FOLLOWLOCATION, 1);
+curl_setopt( $ch, CURLOPT_HEADER, 0);
+curl_setopt( $ch, CURLOPT_RETURNTRANSFER, 1);
+$response = curl_exec( $ch );											
+    curl_close($ch);
+ }											
+													
+												
+												
                                                 //TEST LINE   http://recod.ru/cod_report_master/codsender.php?emailz=yaeriks@yandex.ru&mpass=p&sended=pLAYER999%i have probleeem&userip=111.222.333.444&serverip=192.40.23.21:29000
                                                 if (!empty($idnum)) {
                                                     if ($idnum != 'false') {
@@ -157,7 +183,10 @@ if ($x_stop_lp == 0) {
                                                 echo '--------->' . $msgrn;
                                                 if (empty($servernamex))
                                                     $servernamex = $server_ip;
-                                                if ($curl = curl_init()) {
+                                                
+										/*		
+												
+												if ($curl = curl_init()) {
                                                     curl_setopt($curl, CURLOPT_URL, 'http://recod.ru/cod_report_master/codsender.php?emailz=' . $admin_email . '&mpass=' . $gmailpass . '&sended=' . repooort($nickrn) . '%' . repooort($msgrn) . '&userip=' . $iprepp . '&serverip=' . repooort($servernamex) . ':' . $server_port);
                                                     curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
                                                     curl_setopt($curl, CURLOPT_POST, true);
@@ -166,6 +195,31 @@ if ($x_stop_lp == 0) {
                                                     echo $out;
                                                     curl_close($curl);
                                                 }
+										*/
+
+ 
+$msg = 'Nickname: ' 
+. repooort($nickrn) . ' Message: ' . repooort($msgrn) 
+. ' UserIp: ' . $iprepp . ' ServerIp: ' . repooort($servernamex) 
+. ':' . $server_port;
+
+$json_data = array ('content'=>"$msg");
+$make_json = json_encode($json_data);
+
+ if ($ch = curl_init( $webhookurl )) {
+curl_setopt( $ch, CURLOPT_SSL_VERIFYPEER, false); // ---
+curl_setopt( $ch, CURLOPT_SSL_VERIFYHOST, false); // ---
+curl_setopt( $ch, CURLOPT_POST, 1);
+curl_setopt( $ch, CURLOPT_POSTFIELDS, $make_json);
+curl_setopt( $ch, CURLOPT_FOLLOWLOCATION, 1);
+curl_setopt( $ch, CURLOPT_HEADER, 0);
+curl_setopt( $ch, CURLOPT_RETURNTRANSFER, 1);
+$response = curl_exec( $ch );											
+    curl_close($ch);
+ }										
+												
+												
+												
                                                 //TEST LINE   http://recod.ru/cod_report_master/codsender.php?emailz=yaeriks@yandex.ru&mpass=&sended=pLAYER999%i have probleeem&userip=111.222.333.444&serverip=192.40.23.21:29000
                                                 usleep($sleep_rcon);
                                                 if ($idnum != 'false')
@@ -231,7 +285,9 @@ if ($x_stop_lp == 0) {
                                                 if (empty($servernamex))
                                                     $servernamex = $server_ip;
                                                 usleep($sleep_rcon);
-                                                if ($curl = curl_init()) {
+                                                
+												/*
+												if ($curl = curl_init()) {
                                                     curl_setopt($curl, CURLOPT_URL, 'http://recod.ru/cod_report_master/codsender.php?emailz=' . $admin_emaill[$rotxv] . '&mpass=' . $gmailpass . '&sended=' . repooort($nickrn) . '%' . repooort($msgrn) . '&userip=' . $iprepp . '&serverip=' . repooort($servernamex) . ':' . $server_port);
                                                     curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
                                                     curl_setopt($curl, CURLOPT_POST, true);
@@ -240,6 +296,28 @@ if ($x_stop_lp == 0) {
                                                     echo $out;
                                                     curl_close($curl);
                                                 }
+												*/
+	 
+$msg = 'Nickname: ' 
+. repooort($nickrn) . ' Message: ' . repooort($msgrn) 
+. ' UserIp: ' . $iprepp . ' ServerIp: ' . repooort($servernamex) 
+. ':' . $server_port;
+
+$json_data = array ('content'=>"$msg");
+$make_json = json_encode($json_data);
+
+ if ($ch = curl_init( $webhookurl )) {
+curl_setopt( $ch, CURLOPT_SSL_VERIFYPEER, false); // ---
+curl_setopt( $ch, CURLOPT_SSL_VERIFYHOST, false); // ---
+curl_setopt( $ch, CURLOPT_POST, 1);
+curl_setopt( $ch, CURLOPT_POSTFIELDS, $make_json);
+curl_setopt( $ch, CURLOPT_FOLLOWLOCATION, 1);
+curl_setopt( $ch, CURLOPT_HEADER, 0);
+curl_setopt( $ch, CURLOPT_RETURNTRANSFER, 1);
+$response = curl_exec( $ch );											
+    curl_close($ch);
+ }												
+												
                                                 if ($idnum != 'false')
                                                     rcon('tell ' . $idnum . ' ^1' . $reppport . '', '');
                                                 else
@@ -275,7 +353,8 @@ if ($x_stop_lp == 0) {
                                             echo '--------->' . $msgrn;
                                             if (empty($servernamex))
                                                 $servernamex = $server_ip;
-                                            if ($curl = curl_init()) {
+                                          /* 
+										   if ($curl = curl_init()) {
                                                 curl_setopt($curl, CURLOPT_URL, 'http://recod.ru/cod_report_master/codsender.php?emailz=' . $admin_email . '&mpass=' . $gmailpass . '&sended=' . repooort($nickrn) . '%' . repooort($msgrn) . '&userip=' . $iprepp . '&serverip=' . repooort($servernamex) . ':' . $server_port);
                                                 curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
                                                 curl_setopt($curl, CURLOPT_POST, true);
@@ -284,6 +363,30 @@ if ($x_stop_lp == 0) {
                                                 echo $out;
                                                 curl_close($curl);
                                             }
+										 */	
+											
+ 
+$msg = 'Nickname: ' 
+. repooort($nickrn) . ' Message: ' . repooort($msgrn) 
+. ' UserIp: ' . $iprepp . ' ServerIp: ' . repooort($servernamex) 
+. ':' . $server_port;
+
+$json_data = array ('content'=>"$msg");
+$make_json = json_encode($json_data);
+
+ if ($ch = curl_init( $webhookurl )) {
+curl_setopt( $ch, CURLOPT_SSL_VERIFYPEER, false); // ---
+curl_setopt( $ch, CURLOPT_SSL_VERIFYHOST, false); // ---
+curl_setopt( $ch, CURLOPT_POST, 1);
+curl_setopt( $ch, CURLOPT_POSTFIELDS, $make_json);
+curl_setopt( $ch, CURLOPT_FOLLOWLOCATION, 1);
+curl_setopt( $ch, CURLOPT_HEADER, 0);
+curl_setopt( $ch, CURLOPT_RETURNTRANSFER, 1);
+$response = curl_exec( $ch );											
+    curl_close($ch);
+ }											
+											
+											
                                             usleep($sleep_rcon);
                                             if (!empty($idnum)) {
                                                 if ($idnum != 'false') {
