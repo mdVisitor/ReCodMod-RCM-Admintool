@@ -167,7 +167,7 @@ echo '  '.substr($tfinishh = (microtime(true) - $start),0,7);
         }
     }
 
-else if ((strpos($user_message, $ixz . 'nextmap') !== false) && ($x_number != 1)) {
+if ((strpos($user_message, $ixz . 'nextmap') !== false) && ($x_number != 1)) {
         //$yomapratation = 0;
         usleep($sleep_rcon * 2);
         require $cpath . 'ReCodMod/functions/getinfo/sv_mapRotation.php';
@@ -184,6 +184,7 @@ else if ((strpos($user_message, $ixz . 'nextmap') !== false) && ($x_number != 1)
         */
         $mapslisst = str_replace($mmapname, "^2" . $mmapname . "^7", $mapslisst);
         usleep($sleep_rcon);
+	echo 'Nextmap:'.$mapslisst;
         rcon('say ^6 ^1Map ^7' . $mapslisst . '', '');
         AddToLogInfo("[" . $datetime . "] nextmap: " . $i_ip . " (" . $x_namex . ") (" . $user_message . ")");
         ++$x_number;
