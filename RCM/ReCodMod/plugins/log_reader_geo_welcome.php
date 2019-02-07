@@ -636,7 +636,7 @@ usleep($sleep_rcon);
                 }
             }
 		
-	if ($rules_kick_bad_named){	
+	if (($rules_kick_bad_named) || ($BadNames)){	
             $result = $db2->query("SELECT * FROM x_words");
             foreach ($result as $row) {
                 $namer = $row['z_names'];
@@ -663,6 +663,11 @@ usleep($sleep_rcon);
                     //echo ' vooooooords   '.$tfinishh = (microtime(true) - $start);
                 }
             }
+		
+		$rules_badname = mb_strtolower($rules_badname, 'UTF-8');
+	        $badfinder = mb_strtolower($badfinder, 'UTF-8');
+		$i_name = mb_strtolower($i_name, 'UTF-8');
+		
             if ((($rules_kick_bad_named) && (array_search(strtolower($i_name), $rules_badname, true) !== false) && ($i_ping != 111) && ($i_ping != '999'))
               ||(($BadNames) && (array_search(strtolower($i_name), $badfinder, true) !== false) && ($i_ping != 111) && ($i_ping != '999')))
 			{
