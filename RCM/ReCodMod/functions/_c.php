@@ -3,8 +3,8 @@
   $stimec       = time();
 //////////////////////////////////////////////////
 $z_rcm = "RCM[v.4]";
-$xbld   = "[c367]";
-$dtx   = "^7[24_12_2016]^5";
+$xbld   = "[c368]";
+$dtx   = "^7[7_2_2019]^5";
 
 error_reporting(E_ALL);
 ini_set("display_errors", 1);
@@ -473,6 +473,8 @@ require $cpath . 'cfg/rules.cfg.php';
 require $cpath . 'cfg/badwords.cfg.php';
   else
 	 require $cfg_badwords;
+
+require $cpath . 'cfg/badnames.cfg.php';
 require $cpath . 'cfg/spam.cfg.php';
 require $cpath . 'cfg/cryingkids.cfg.php';
 require $cpath . 'cfg/messages.cfg.php';
