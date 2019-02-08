@@ -169,15 +169,74 @@ echo '  '.substr($tfinishh = (microtime(true) - $start),0,7);
 
 if ((strpos($user_message, $ixz . 'nextmap') !== false) && ($x_number != 1)) {
 	  if (strpos($x_namex, $x_nickx) !== false) {
-        //$yomapratation = 0;
-        usleep($sleep_rcon * 2);
-        require $cpath . 'ReCodMod/functions/getinfo/sv_mapRotation.php';
-        fclose($connx);
-        $mapslisst = str_replace($mmapname, "^2" . $mmapname . "^7", $mapslisst);
-        usleep($sleep_rcon);
-	echo 'Nextmap:'.$mapslisst;
-        rcon('say ^6 ^1Map ^7' . $mapslisst . '', '');
-        AddToLogInfo("[" . $datetime . "] nextmap: " . $i_ip . " (" . $x_namex . ") (" . $user_message . ")");
+        
+		  
+		  
+		  
+		  
+	usleep($sleep_rcon);		  
+
+ for ($i=0; $i<1; $i++) 
+	{
+require $cpath.'ReCodMod/functions/inc_functions3.php';
+
+	
+usleep($sleep_rcon);
+require $cpath.'ReCodMod/functions/getinfo/sv_mapRotation.php';
+fclose($connx);	
+
+ //$emaprun - current map
+ //$mapsxc - current game type and map rotation.
+ if(empty($emaprun)) {
+$status = new COD4xServerStatus($server_ip, $server_port);
+                if ($status->getServerStatus())
+                 {
+                  $status->parseServerData();
+   if(empty($emaprun))               
+$emaprun = $serverStatus['mapname'];
+                 }
+}
+ 
+if (preg_match('/\b'.$emaprun.'\b\s\b(.+)/iu', $mapsxc, $match)) {
+	$mapnamekl = explode(trim($emaprun), $mapsxc);
+        $mapnamekl[1] = preg_replace("/\b[a-z]{1,4}\b/iu", "", $mapnamekl[1]);
+	$lll = preg_replace("/\W*\b/iu", "%%", $mapnamekl[1]);
+        $emaprunln = explode('%%%%', $lll);
+echo "  next map";
+echo '---> '.$emaprunl = $emaprunln[1];}
+
+if(empty($emaprunl))
+	$emaprunl = 'Unknown';
+ 
+usleep($sleep_rcon);
+rcon('say '.$infoomnxtt.' ^7'.$emaprunl.'', '');
+++$x_number;	
+++$x_return;
+if(!empty($db))
+$db = NULL;
+if(!empty($db1))
+$db1 = NULL;
+if(!empty($db2))
+$db2 = null;
+if(!empty($db3))
+$db3 = NULL;
+if(!empty($db4))
+$db4 = NULL;
+if(!empty($db5))
+$db5 = NULL;
+if(is_resource($connect))
+fclose($connect);
+exit;
+ 
+
+//}   
+  }	  
+		  
+		  
+		  
+		  
+		  
+		  
         ++$x_number;
         echo '  ' . substr($tfinishh = (microtime(true) - $start), 0, 7);
         ++$x_stop_lp; //return;	
