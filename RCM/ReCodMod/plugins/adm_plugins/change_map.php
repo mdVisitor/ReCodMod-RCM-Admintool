@@ -263,7 +263,7 @@ echo 'Unknown map plugin error!';
 
 
 
-if (strpos($msgr, $ixz.'nextmap') !== false){
+if (strpos($msgr, $ixz.'maplist') !== false){
  
 ////////////////////////////////////Change list
 $i_namex = chatrr($i_name);
