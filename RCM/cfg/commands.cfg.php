@@ -3,7 +3,7 @@
 /// ALL COMMANDS!
 $commands = array($mistake, 
 'report', 'support', 'reg', 'on', 'login', 'logout', 'num', 'rules',
-'cmd', 'list', 'all', 'lastban', 'reset me', 'xget',
+'cmd', 'list', 'all', 'nextmap','lastban', 'reset me', 'xget',
  'ip', 'time', 'info', 'sys', 'geo', 'guid', 'status',  
 'top', 'worst', 'n', 'status',  'kills', 'sk', 'stats', 
 'rank', 'toprank', 'nade', 'grenade', 'heads', 'mellee', 
@@ -21,7 +21,7 @@ $getsssc = 'ppp';
 
 /// cmd  - for each group admin commands with server control separately!	 
 $admin_commands = array(';admingroup;',
- 'rc', 'ban', 'kick', 'tban', 'unban', 'rlist', 'ftp', 'kick', 'kickall', 'restart', 'map', 'nextmap', 'gt', 'range', 'banlist', 'ulist', 'list', 
+ 'rc', 'ban', 'kick', 'tban', 'unban', 'rlist', 'ftp', 'kick', 'kickall', 'restart', 'map', 'maplist', 'gt', 'range', 'banlist', 'ulist', 'list', 
  'getss', $getsssc, 'delete', 'reload', 'refresh', 'update', 'bw');
  
 $moderator_commands = array(';moderatorgroup;', 
