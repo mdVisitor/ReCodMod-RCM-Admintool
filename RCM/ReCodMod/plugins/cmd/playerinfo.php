@@ -168,20 +168,11 @@ echo '  '.substr($tfinishh = (microtime(true) - $start),0,7);
     }
 
 if ((strpos($user_message, $ixz . 'nextmap') !== false) && ($x_number != 1)) {
+	  if (strpos($x_namex, $x_nickx) !== false) {
         //$yomapratation = 0;
         usleep($sleep_rcon * 2);
         require $cpath . 'ReCodMod/functions/getinfo/sv_mapRotation.php';
         fclose($connx);
-        /*
-        $pos = strripos($mapslisst, $mmapname);
-        
-        if ($pos === false) {
-        echo "К сожалению, ($mmapname) не найдена в ($mapslisst)";
-        } else {
-        echo "Поздравляем!\n";
-        echo "($mmapname) найдено в ($mapslisst) в позиции ($pos)";
-        }
-        */
         $mapslisst = str_replace($mmapname, "^2" . $mmapname . "^7", $mapslisst);
         usleep($sleep_rcon);
 	echo 'Nextmap:'.$mapslisst;
@@ -189,7 +180,8 @@ if ((strpos($user_message, $ixz . 'nextmap') !== false) && ($x_number != 1)) {
         AddToLogInfo("[" . $datetime . "] nextmap: " . $i_ip . " (" . $x_namex . ") (" . $user_message . ")");
         ++$x_number;
         echo '  ' . substr($tfinishh = (microtime(true) - $start), 0, 7);
-        ++$x_stop_lp; //return;		
+        ++$x_stop_lp; //return;	
+		   }
     }
 
  if ((strpos($user_message, $ixz . 'time') !== false) && ($x_number != 1)) {
