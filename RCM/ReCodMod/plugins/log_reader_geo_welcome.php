@@ -958,7 +958,7 @@ try{
 			$nservername = meessagee($servername);	
 			$nickname = meessagee($nickname);
 			/* if ( */ $dbc->exec("INSERT INTO 'chat' ('servername', 'guid', 'nickname', 'time', 'text', 'status', 'geo', 'counts') 
-										      VALUES ('$servername', '$guid', '$nickname', '$datetime', '0', '0', '$xxccode', '0')") /*  > 0) */	
+										      VALUES ('$servername', '$guid', '$nickname', '$datetime', '0', '0', '$xxccode', '0')"); /*  > 0) */	
 				}		
 }catch(PDOException $e){die($e->getMessage());}						  
 ////////////////////////////////////////////////////////////////////////////////////				   
@@ -1009,7 +1009,7 @@ try{
 			$nservername = meessagee($servername);	
 			$nickname = meessagee($nickname);
 			/* if ( */ $dbc->exec("INSERT INTO 'chat' ('servername', 'guid', 'nickname', 'time', 'text', 'status', 'geo', 'counts') 
-										      VALUES ('$servername', '$guid', '$nickname', '$datetime', '0', '0', '$xxccode', '0')") /*  > 0) */	
+										      VALUES ('$servername', '$guid', '$nickname', '$datetime', '0', '0', '$xxccode', '0')"); /*  > 0) */	
 				}		
 }catch(PDOException $e){die($e->getMessage());}						  
 ////////////////////////////////////////////////////////////////////////////////////				   
@@ -1145,7 +1145,7 @@ try{
 			$nservername = meessagee($servername);	
 			$nickname = meessagee($nickname); 
 			/* if ( */ $dbc->exec("INSERT INTO 'chat' ('servername', 'guid', 'nickname', 'time', 'text', 'status', 'geo', 'counts') 
-										      VALUES ('$servername', '$guid', '$nickname', '$datetime', '0', '0', '$xxccode', '0')") /*  > 0) */	
+										      VALUES ('$servername', '$guid', '$nickname', '$datetime', '0', '0', '$xxccode', '0')"); /*  > 0) */	
 				}		
 }catch(PDOException $e){die($e->getMessage());}						  
 ////////////////////////////////////////////////////////////////////////////////////				   
@@ -1199,7 +1199,7 @@ try{
 			$nservername = meessagee($servername);	
 			$nickname = meessagee($nickname);
 			/* if ( */ $dbc->exec("INSERT INTO 'chat' ('servername', 'guid', 'nickname', 'time', 'text', 'status', 'geo', 'counts') 
-										      VALUES ('$servername', '$guid', '$nickname', '$datetime', '0', '0', '$xxccode', '0')") /*  > 0) */	
+										      VALUES ('$servername', '$guid', '$nickname', '$datetime', '0', '0', '$xxccode', '0')"); /*  > 0) */	
 				}		
 }catch(PDOException $e){die($e->getMessage());}						  
 ////////////////////////////////////////////////////////////////////////////////////				   
