@@ -537,6 +537,71 @@ $pos = strpos($parseline, '');
                 else
                  {
                   AddToLog1clear("[" . $datetime . "] " . $dhgsj . " : " . $msgO . "");
+////////////////////////////////////////////////////////////////////////////////////				   
+////////////////////////////////////////////////////////////////////////////////////
+//////////////////////                                        ////////////////////// 
+//////////////////////        CHAT SQLITE WALL ON SITE        ////////////////////// 			
+//////////////////////                                        ////////////////////// 
+////////////////////////////////////////////////////////////////////////////////////			
+////////////////////////////////////////////////////////////////////////////////////			
+if (strpos($msgO, 'QUICKMESSAGE_') === false){
+if(!empty($msgO)){
+$chatdbsize = 5; // 5.MB
+if (filesize($chatdb) > ($chatdbsize * 1000000)) 
+  {
+AddToLog1("<br/>[".$datetime."]<font color='green'> Server :</font> <font color='silver'> Chat database $chatdbsize mb auto reset! </font> "); 
+echo "OK ...";
+ 
+ if(file_exists($chatdb)){
+$file = $chatdb;
+$newfile = $cpath . "ReCodMod/x_logs/archive/chat/chat";
+$datetime = date('Y.m.d H:i:s');
+if (!copy($file, $newfile."_".$datetime.".db")) {
+    echo "Error copy $file...\n";}else{
+		
+if (!file_exists($chatdb)){
+try
+{   
+    $dbc = new PDO('sqlite:' . $chatdb);
+	$dbc->exec('CREATE TABLE IF NOT EXISTS chat (
+			id INTEGER  NOT NULL PRIMARY KEY AUTOINCREMENT,
+			servername VARCHAR(255)  NOT NULL,
+			guid VARCHAR(255)  NOT NULL,
+			nickname VARCHAR(255)  NOT NULL,
+			time VARCHAR(255)  NOT NULL,
+			text VARCHAR(255)  NOT NULL,			
+			status VARCHAR(255)  NOT NULL,
+			geo VARCHAR(255)  NOT NULL,
+			counts varchar(50)  NOT NULL
+	)');
+	$st = $dbc->query('SELECT image FROM chat');
+	$result = $st->fetchAll();
+	if (sizeof($result) == 0)
+	{echo 'Table created successfully' . "\n";}}
+    catch(PDOException $e){die($e->getMessage());}} 
+  }
+  }  
+	}
+	
+try{
+   $dbc = new PDO('sqlite:' . $chatdb);
+             if(preg_match("/[\d]+[\d]{14,22}/",$guidn)) 
+				{
+			$nservername = meessagee($servername);
+			
+			$dhgsj = preg_replace('/[^ a-zа-яё\d]/ui', '', $dhgsj);
+			/* if ( */ $dbc->exec("INSERT INTO 'chat' ('servername', 'guid', 'nickname', 'time', 'text', 'status', 'geo', 'counts') 
+										      VALUES ('$nservername', '$guidn', '$dhgsj', '$datetime', '$msgO', '0', '0', '0')"); /*  > 0) */	
+				}		
+}catch(PDOException $e){die($e->getMessage());}  }}
+
+////////////////////////////////////////////////////////////////////////////////////				   
+////////////////////////////////////////////////////////////////////////////////////
+//////////////////////                                        ////////////////////// 
+//////////////////////        CHAT SQLITE WALL ON SITE        ////////////////////// 			
+//////////////////////                                        ////////////////////// 
+////////////////////////////////////////////////////////////////////////////////////			
+////////////////////////////////////////////////////////////////////////////////////			      		  
                      if ($guids == 1)    
                         AddToLog1("<br/>[" . $datetime . "]<b>" . $dhgsj . "<SPAN class='tooltipmk'> : Guid : ".$guidn."</span></b> : " . $msgO . "");
 						  else
@@ -789,7 +854,7 @@ $pos = strpos($parseline, '');
 //////////////////////                                        ////////////////////// 
 ////////////////////////////////////////////////////////////////////////////////////			
 ////////////////////////////////////////////////////////////////////////////////////			
-
+if (strpos($msgO, 'QUICKMESSAGE_') === false){
 if(!empty($msgO)){
 $chatdbsize = 5; // 5.MB
 if (filesize($chatdb) > ($chatdbsize * 1000000)) 
@@ -826,17 +891,19 @@ try
     catch(PDOException $e){die($e->getMessage());}} 
   }
   }  
+	}
 	
 try{
    $dbc = new PDO('sqlite:' . $chatdb);
              if(preg_match("/[\d]+[\d]{14,22}/",$guidn)) 
 				{
-			$servername = preg_replace('/[^ a-zа-яё\d]/ui', '', $servername);
+			$nservername = meessagee($servername);
+			
 			$dhgsj = preg_replace('/[^ a-zа-яё\d]/ui', '', $dhgsj);
 			/* if ( */ $dbc->exec("INSERT INTO 'chat' ('servername', 'guid', 'nickname', 'time', 'text', 'status', 'geo', 'counts') 
-										      VALUES ('$servername', '$guidn', '$dhgsj', '$datetime', '$msgO', '0', '0', '0')"); /*  > 0) */	
+										      VALUES ('$nservername', '$guidn', '$dhgsj', '$datetime', '$msgO', '0', '0', '0')"); /*  > 0) */	
 				}		
-}catch(PDOException $e){die($e->getMessage());} } }
+}catch(PDOException $e){die($e->getMessage());}  }}
 
 ////////////////////////////////////////////////////////////////////////////////////				   
 ////////////////////////////////////////////////////////////////////////////////////
@@ -844,7 +911,7 @@ try{
 //////////////////////        CHAT SQLITE WALL ON SITE        ////////////////////// 			
 //////////////////////                                        ////////////////////// 
 ////////////////////////////////////////////////////////////////////////////////////			
-////////////////////////////////////////////////////////////////////////////////////		      
+////////////////////////////////////////////////////////////////////////////////////			      		      
 		      
                 AddToLog1clear("[" . $datetime . "] " . $dhgsj . " : " . $msgO . "");
   AddToLog1("<br/>[" . $datetime . "]<b>" . $dhgsj . "<SPAN class='tooltipmk'> : Guid : ".$guidn."</span></b> : " . $msgO . "");
