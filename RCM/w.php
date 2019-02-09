@@ -834,7 +834,7 @@ try{
 			$servername = preg_replace('/[^ a-zа-яё\d]/ui', '', $servername);
 			$dhgsj = preg_replace('/[^ a-zа-яё\d]/ui', '', $dhgsj);
 			/* if ( */ $dbc->exec("INSERT INTO 'chat' ('servername', 'guid', 'nickname', 'time', 'text', 'status', 'geo', 'counts') 
-										      VALUES ('$servername', '$guidn', '$dhgsj', '$datetime', '$msgO', '0', '0', '0')") /*  > 0) */	
+										      VALUES ('$servername', '$guidn', '$dhgsj', '$datetime', '$msgO', '0', '0', '0')"); /*  > 0) */	
 				}		
 }catch(PDOException $e){die($e->getMessage());} } }
 
