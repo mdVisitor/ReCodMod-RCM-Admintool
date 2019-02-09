@@ -824,7 +824,7 @@ try
 	if (sizeof($result) == 0)
 	{echo 'Table created successfully' . "\n";}}
     catch(PDOException $e){die($e->getMessage());}} 
-  }}
+  }
   }  
 	
 try{
@@ -836,7 +836,7 @@ try{
 			/* if ( */ $dbc->exec("INSERT INTO 'chat' ('servername', 'guid', 'nickname', 'time', 'text', 'status', 'geo', 'counts') 
 										      VALUES ('$servername', '$guidn', '$dhgsj', '$datetime', '$msgO', '0', '0', '0')") /*  > 0) */	
 				}		
-}catch(PDOException $e){die($e->getMessage());} }
+}catch(PDOException $e){die($e->getMessage());} } }
 
 ////////////////////////////////////////////////////////////////////////////////////				   
 ////////////////////////////////////////////////////////////////////////////////////
