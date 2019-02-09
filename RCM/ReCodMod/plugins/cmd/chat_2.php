@@ -209,12 +209,15 @@ $x_reason = 'Swearing';
 
   $tk = $i_id . ' / ' . $i_namex . ' / ' . $i_ip . ' / ' . $i_ping;
 	$x_bann = explode(" / ", $tk);	 
-	     
+	  
+if ($game_patch != 'cod4'){
+	  
 	if ($guids == 0)     
 $db2->exec("INSERT INTO bans (playername,ip,guid,reason,time,whooo,patch) VALUES ('$x_bann[1]','$x_bann[2]','','$x_reason','$datetime','$x_nickx','$game_patch')");
 	     else
 	$db2->exec("INSERT INTO bans (playername,ip,guid,reason,time,whooo,patch) VALUES ('$x_bann[1]','$x_bann[2]','$guidn','$x_reason','$datetime','$x_nickx','$game_patch')");
 	     
+} 
 		     
 ++$stop_lp; 	    } 
 
@@ -260,7 +263,8 @@ $x_namex = clearnamex($i_name);
 $x_nickx = clearnamex($nickr);
 $x_reason = 'Spam';
   $tk = $i_id . ' / ' . $i_namex . ' / ' . $i_ip . ' / ' . $i_ping;
-	$x_bann = explode(" / ", $tk);	
+	$x_bann = explode(" / ", $tk);
+if ($game_patch != 'cod4')	
 $db2->exec("INSERT INTO bans (playername,ip,guid,reason,time,whooo,patch) VALUES ('$x_bann[1]','$x_bann[2]','','$x_reason','$datetime','$x_nickx','$game_patch')");
 AddToLog("[".$datetime."] BAN WARN: (" . $i_ip . ") (" . $i_name . ")");
 AddToLog1("<br/>[".$datetime."]<font color='green'> Server :</font> " . $nickr . " <font color='fuchsia'>[^7Ban by RCM '.$z_ver.' = Spam</font>] ");			 
@@ -298,6 +302,7 @@ $x_nickx = clearnamex($nickr);
 $x_reason = 'Spam';
   $tk = $i_id . ' / ' . $i_namex . ' / ' . $i_ip . ' / ' . $i_ping;
 	$x_bann = explode(" / ", $tk);	
+	if ($game_patch != 'cod4')
 $db2->exec("INSERT INTO bans (playername,ip,guid,reason,time,whooo,patch) VALUES ('$x_bann[1]','$x_bann[2]','','$x_reason','$datetime','$x_nickx','$game_patch')");
 AddToLog("[".$datetime."] BAN WARN: (" . $i_ip . ") (" . $i_name . ")");
 AddToLog1("<br/>[".$datetime."]<font color='green'> Server :</font> " . $nickr . " <font color='fuchsia'>[^7Ban by RCM '.$z_ver.' = Spam</font>] ");			 
@@ -348,6 +353,7 @@ $x_nickx = clearnamex($nickr);
 $x_reason = 'Disliker';
   $tk = $i_id . ' / ' . $i_namex . ' / ' . $i_ip . ' / ' . $i_ping;
 	$x_bann = explode(" / ", $tk);	
+	if ($game_patch != 'cod4')
 $db2->exec("INSERT INTO bans (playername,ip,guid,reason,time,whooo,patch) VALUES ('$x_bann[1]','$x_bann[2]','','$x_reason','$datetime','$x_nickx','$game_patch')");
 AddToLog("[".$datetime."] BAN WARN: (" . $i_ip . ") (" . $i_name . ")");			
 ++$stop_lp;	    } 
@@ -385,6 +391,7 @@ $x_nickx = clearnamex($nickr);
 $x_reason = 'Disliker';
   $tk = $i_id . ' / ' . $i_namex . ' / ' . $i_ip . ' / ' . $i_ping;
 	$x_bann = explode(" / ", $tk);	
+	if ($game_patch != 'cod4')
 $db2->exec("INSERT INTO bans (playername,ip,guid,reason,time,whooo,patch) VALUES ('$x_bann[1]','$x_bann[2]','','$x_reason','$datetime','$x_nickx','$game_patch')");
 AddToLog("[".$datetime."] BAN WARN: (" . $i_ip . ") (" . $i_name . ")");			
 ++$stop_lp;	    } 
