@@ -955,8 +955,8 @@ try{
              if(preg_match("/[\d]+[\d]{14,22}/",$guid)) 
 				{
 			$xxccode = ($record->country_code);		
-			$servername = preg_replace('/[^ a-zа-яё\d]/ui', '', $servername);
-			$nickname = preg_replace('/[^ a-zа-яё\d]/ui', '', $nickname);
+			$nservername = meessagee($servername);	
+			$nickname = meessagee($nickname);
 			/* if ( */ $dbc->exec("INSERT INTO 'chat' ('servername', 'guid', 'nickname', 'time', 'text', 'status', 'geo', 'counts') 
 										      VALUES ('$servername', '$guid', '$nickname', '$datetime', '0', '0', '$xxccode', '0')") /*  > 0) */	
 				}		
@@ -1006,8 +1006,8 @@ try{
              if(preg_match("/[\d]+[\d]{14,22}/",$guid)) 
 				{
 			$xxccode = ($record->country_code);		
-			$servername = preg_replace('/[^ a-zа-яё\d]/ui', '', $servername);
-			$nickname = preg_replace('/[^ a-zа-яё\d]/ui', '', $nickname);
+			$nservername = meessagee($servername);	
+			$nickname = meessagee($nickname);
 			/* if ( */ $dbc->exec("INSERT INTO 'chat' ('servername', 'guid', 'nickname', 'time', 'text', 'status', 'geo', 'counts') 
 										      VALUES ('$servername', '$guid', '$nickname', '$datetime', '0', '0', '$xxccode', '0')") /*  > 0) */	
 				}		
@@ -1142,8 +1142,8 @@ try{
              if(preg_match("/[\d]+[\d]{14,22}/",$guid)) 
 				{
 			$xxccode = ($record->country_code);		
-			$servername = preg_replace('/[^ a-zа-яё\d]/ui', '', $servername);
-			$nickname = preg_replace('/[^ a-zа-яё\d]/ui', '', $nickname);
+			$nservername = meessagee($servername);	
+			$nickname = meessagee($nickname); 
 			/* if ( */ $dbc->exec("INSERT INTO 'chat' ('servername', 'guid', 'nickname', 'time', 'text', 'status', 'geo', 'counts') 
 										      VALUES ('$servername', '$guid', '$nickname', '$datetime', '0', '0', '$xxccode', '0')") /*  > 0) */	
 				}		
@@ -1196,8 +1196,8 @@ try{
              if(preg_match("/[\d]+[\d]{14,22}/",$guid)) 
 				{
 			$xxccode = ($record->country_code);		
-			$servername = preg_replace('/[^ a-zа-яё\d]/ui', '', $servername);
-			$nickname = preg_replace('/[^ a-zа-яё\d]/ui', '', $nickname);
+			$nservername = meessagee($servername);	
+			$nickname = meessagee($nickname);
 			/* if ( */ $dbc->exec("INSERT INTO 'chat' ('servername', 'guid', 'nickname', 'time', 'text', 'status', 'geo', 'counts') 
 										      VALUES ('$servername', '$guid', '$nickname', '$datetime', '0', '0', '$xxccode', '0')") /*  > 0) */	
 				}		
