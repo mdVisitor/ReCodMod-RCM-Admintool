@@ -587,11 +587,13 @@ try{
    $dbc = new PDO('sqlite:' . $chatdb);
              if(preg_match("/[\d]+[\d]{14,22}/",$guidn)) 
 				{
-			$nservername = meessagee($servername);
+ 			$nservername = meessagee($servername);
+			$nservername = matmat($nservername);
+			$nservername = md5($nservername);
 			
 			$dhgsj = preg_replace('/[^ a-zа-яё\d]/ui', '', $dhgsj);
 			/* if ( */ $dbc->exec("INSERT INTO 'chat' ('servername', 'guid', 'nickname', 'time', 'text', 'status', 'geo', 'counts') 
-										      VALUES ('$nservername', '$guidn', '$dhgsj', '$datetime', '$msgO', '0', '0', '0')"); /*  > 0) */	
+										      VALUES ('$servername', '$guidn', '$dhgsj', '$datetime', '$msgO', '0', '0', '$nservername')"); /*  > 0) */	
 				}		
 }catch(PDOException $e){die($e->getMessage());}  }}
 
@@ -898,10 +900,12 @@ try{
              if(preg_match("/[\d]+[\d]{14,22}/",$guidn)) 
 				{
 			$nservername = meessagee($servername);
+			$nservername = matmat($nservername);
+			$nservername = md5($nservername);
 			
 			$dhgsj = preg_replace('/[^ a-zа-яё\d]/ui', '', $dhgsj);
 			/* if ( */ $dbc->exec("INSERT INTO 'chat' ('servername', 'guid', 'nickname', 'time', 'text', 'status', 'geo', 'counts') 
-										      VALUES ('$nservername', '$guidn', '$dhgsj', '$datetime', '$msgO', '0', '0', '0')"); /*  > 0) */	
+										      VALUES ('$servername', '$guidn', '$dhgsj', '$datetime', '$msgO', '0', '0', '$nservername')"); /*  > 0) */	
 				}		
 }catch(PDOException $e){die($e->getMessage());}  }}
 
