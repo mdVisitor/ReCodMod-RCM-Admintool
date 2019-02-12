@@ -595,23 +595,7 @@ try{
 			/* if ( */ $dbc->exec("INSERT INTO 'chat' ('servername', 'guid', 'nickname', 'time', 'text', 'status', 'geo', 'counts') 
 										      VALUES ('$servername', '$guidn', '$dhgsj', '$datetime', '$msgO', '0', '0', '$nservername')"); /*  > 0) */	
 							
- $reponse=$dbc ->query("SELECT * From chat where geo != '0'");
-while ($xn = $reponse->fetch())
-{ 
-   if(!empty($xn['geo']))
-   {
-   $zguid = $xn['guid'];
-   $strana = $xn['geo'];
-   $zserver = $xn['servername'];
-   
-   $reponse1=$dbc ->query("SELECT * From chat where guid='$zguid' and geo='0'");
-  while ($xnn = $reponse1->fetch())
-   { 
-   if(empty($xnn['geo']))
-   $dbc->exec("UPDATE chat SET geo='$strana' WHERE guid='$zguid'");
-   
-   }}
- } 				
+ 				
 						
 				}		
 }catch(PDOException $e){die($e->getMessage());}  }}
@@ -926,23 +910,7 @@ try{
 			/* if ( */ $dbc->exec("INSERT INTO 'chat' ('servername', 'guid', 'nickname', 'time', 'text', 'status', 'geo', 'counts') 
 										      VALUES ('$servername', '$guidn', '$dhgsj', '$datetime', '$msgO', '0', '0', '$nservername')"); /*  > 0) */	
 				
- $reponse=$dbc ->query("SELECT * From chat where geo != '0'");
-while ($xn = $reponse->fetch())
-{ 
-   if(!empty($xn['geo']))
-   {
-   $zguid = $xn['guid'];
-   $strana = $xn['geo'];
-   $zserver = $xn['servername'];
-   
-   $reponse1=$dbc ->query("SELECT * From chat where guid='$zguid' and geo='0'");
-  while ($xnn = $reponse1->fetch())
-   { 
-   if(empty($xnn['geo']))
-   $dbc->exec("UPDATE chat SET geo='$strana' WHERE guid='$zguid'");
-   
-   }}
- } 				
+ 			
 				
 				}		
 }catch(PDOException $e){die($e->getMessage());}  }}
