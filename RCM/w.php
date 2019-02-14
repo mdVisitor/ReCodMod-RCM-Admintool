@@ -1039,7 +1039,7 @@ try{
 										      VALUES ('$servername', '$pl_guid', '0', '$datetime', '0', '$status_and_days', '0', '$nservername')");  
                               echo '-' . $pl_status . '-' . $pl_guid . '-' . $pl_vip_days;
                                 						  
-		   $bdd->exec("UPDATE chat SET status='$status_and_days' WHERE guid='$pl_guid'");
+		   $dbc->exec("UPDATE chat SET status='$status_and_days' WHERE guid='$pl_guid'");
 				
 				}		
 }catch(PDOException $e){die($e->getMessage());}  }}
