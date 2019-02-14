@@ -546,7 +546,8 @@ $pos = strpos($parseline, '');
 ////////////////////////////////////////////////////////////////////////////////////			
 if (strpos($msgO, 'QUICKMESSAGE_') === false){
 if(!empty($msgO)){
-$chatdbsize = 5; // 5.MB
+if(empty($chatdbsize))
+	$chatdbsize = 10; // 10.MB	
 if (filesize($chatdb) > ($chatdbsize * 1000000)) 
   {
 AddToLog1("<br/>[".$datetime."]<font color='green'> Server :</font> <font color='silver'> Chat database $chatdbsize mb auto reset! </font> "); 
@@ -861,7 +862,8 @@ try{
 ////////////////////////////////////////////////////////////////////////////////////			
 if (strpos($msgO, 'QUICKMESSAGE_') === false){
 if(!empty($msgO)){
-$chatdbsize = 5; // 5.MB
+if(empty($chatdbsize))
+	$chatdbsize = 10; // 10.MB
 if (filesize($chatdb) > ($chatdbsize * 1000000)) 
   {
 AddToLog1("<br/>[".$datetime."]<font color='green'> Server :</font> <font color='silver'> Chat database $chatdbsize mb auto reset! </font> "); 
