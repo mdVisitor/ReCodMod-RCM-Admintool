@@ -971,8 +971,9 @@ try{
 //////////////////////                                        ////////////////////// 
 ////////////////////////////////////////////////////////////////////////////////////			
 ////////////////////////////////////////////////////////////////////////////////////
-	else if (preg_match('/PS;/', $parseline, $xnon))
         { 	
+		
+		
 		
 $cccntx = substr_count($parseline,';');
 if($cccntx > 4)
@@ -980,10 +981,6 @@ if($cccntx > 4)
 else
   list($noon, $pl_status, $pl_guid, $pl_vip_days) = explode(';', $parseline);
 		   
-			   
-			   
-if (strpos($msgO, 'QUICKMESSAGE_') === false){
-if(!empty($msgO)){
 if(empty($chatdbsize))
 	$chatdbsize = 10; // 10.MB
 if (filesize($chatdb) > ($chatdbsize * 1000000)) 
@@ -1037,12 +1034,12 @@ try{
 										  
 			$dbc->exec("INSERT INTO 'chat' ('servername', 'guid', 'nickname', 'time', 'text', 'status', 'geo', 'counts') 
 										      VALUES ('$servername', '$pl_guid', '0', '$datetime', '0', '$status_and_days', '0', '$nservername')");  
-                              echo '-' . $pl_status . '-' . $pl_guid . '-' . $pl_vip_days;
+                              //echo '-' . $pl_status . '-' . $pl_guid . '-' . $pl_vip_days;
                                 						  
 		   $dbc->exec("UPDATE chat SET status='$status_and_days' WHERE guid='$pl_guid'");
 				
 				}		
-}catch(PDOException $e){die($e->getMessage());}  }}
+}catch(PDOException $e){die($e->getMessage());} 
                  }
 ////////////////////////////////////////////////////////////////////////////////////				   
 ////////////////////////////////////////////////////////////////////////////////////
