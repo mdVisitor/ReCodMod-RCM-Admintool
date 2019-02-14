@@ -58,7 +58,11 @@ include($cpath . "ReCodMod/geoip_bases/MaxMD/timezone/timezone.php");
 //////////////////////                                        ////////////////////// 
 ////////////////////////////////////////////////////////////////////////////////////			
 ////////////////////////////////////////////////////////////////////////////////////	
-$chatdb = $cpath . 'ReCodMod/databases/chatdb.sqlite';
+if (empty($chat_database_for_all_servers))
+          $chatdb = $cpath . 'ReCodMod/databases/chatdb.sqlite';
+        else
+          $chatdb = $chat_database_for_all_servers;
+
 if (!file_exists($chatdb)){
 try
 {   
