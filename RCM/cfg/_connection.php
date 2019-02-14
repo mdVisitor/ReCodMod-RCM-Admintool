@@ -9,6 +9,9 @@ $server_rconpass = '123';
 //game log file
 $mplogfile = "C:\Games\Call of Duty 4 - Modern Warfare\mods\promodzzz\games_mp.log";  //game log file
 
+//=======================  CHAT SqLite3 Database Limit  ====================
+$chatdbsize = 10; // 10.MB
+
 											
 //=======================  Discord REPORT AND SUPORT  =======================
 //===========================================================================
