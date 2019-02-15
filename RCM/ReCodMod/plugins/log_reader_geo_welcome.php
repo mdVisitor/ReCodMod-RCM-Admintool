@@ -954,15 +954,15 @@ try{
    $dbc = new PDO('sqlite:' . $chatdb);
              if(preg_match("/[\d]+[\d]{14,22}/",$guid)) 
 				{
-			$xxccode = ($record->country_code);		
+			$xxccode = ($record->country_code);	
 			
-		        $nservername = meessagee($servername);
+		    $nservername = meessagee($servername);
 			$nservername = matmat($nservername);
-			$nservername = md5($nservername);
-		     
+			$nservername = md5($nservername); 
+			
 			$nickname = meessagee($nickname);
-			/* if ( */ $dbc->exec("INSERT INTO 'chat' ('servername', 'guid', 'nickname', 'time', 'text', 'status', 'geo', 'counts') 
-										      VALUES ('$servername', '$guid', '$nickname', '$datetime', '0', '0', '$xxccode', '$nservername')"); /*  > 0) */	
+$dbc->exec("INSERT INTO 'chat' ('servername', servermd5, 'guid', 'nickname', 'time', 'timeh', 'text', 'st1', 'st1days', 'st2', 'st2days', 'ip', 'geo') 
+				VALUES ('$servername', '$nservername', '$guid', '$nickname', '$datetime', '0', '0', '0', '0', '0', '0', '$i_ip',  '$xxccode')");
 				}		
 }catch(PDOException $e){die($e->getMessage());}						  
 ////////////////////////////////////////////////////////////////////////////////////				   
@@ -971,7 +971,7 @@ try{
 //////////////////////        CHAT SQLITE WALL ON SITE        ////////////////////// 			
 //////////////////////                                        ////////////////////// 
 ////////////////////////////////////////////////////////////////////////////////////			
-////////////////////////////////////////////////////////////////////////////////////						  
+////////////////////////////////////////////////////////////////////////////////////							  
 						  
 						  }
 						  else{
@@ -1011,13 +1011,15 @@ try{
 				{
 			$xxccode = ($record->country_code);		
 			
-		        $nservername = meessagee($servername);
+		    $nservername = meessagee($servername);
 			$nservername = matmat($nservername);
-			$nservername = md5($nservername);
-		     
+			$nservername = md5($nservername); 
+			
 			$nickname = meessagee($nickname);
-			/* if ( */ $dbc->exec("INSERT INTO 'chat' ('servername', 'guid', 'nickname', 'time', 'text', 'status', 'geo', 'counts') 
-										      VALUES ('$servername', '$guid', '$nickname', '$datetime', '0', '0', '$xxccode', '$nservername')"); /*  > 0) */	
+
+$dbc->exec("INSERT INTO 'chat' ('servername', servermd5, 'guid', 'nickname', 'time', 'timeh', 'text', 'st1', 'st1days', 'st2', 'st2days', 'ip', 'geo') 
+				VALUES ('$servername', '$nservername', '$guid', '$nickname', '$datetime', '0', '0', '0', '0', '0', '0', '$i_ip',  '$xxccode')");  
+										  
 				}		
 }catch(PDOException $e){die($e->getMessage());}						  
 ////////////////////////////////////////////////////////////////////////////////////				   
@@ -1150,14 +1152,16 @@ try{
              if(preg_match("/[\d]+[\d]{14,22}/",$guid)) 
 				{
 			$xxccode = ($record->country_code);		
-			
-		        $nservername = meessagee($servername);
+		    
+			$nservername = meessagee($servername);
 			$nservername = matmat($nservername);
 			$nservername = md5($nservername);
-		     
+			
 			$nickname = meessagee($nickname); 
-			/* if ( */ $dbc->exec("INSERT INTO 'chat' ('servername', 'guid', 'nickname', 'time', 'text', 'status', 'geo', 'counts') 
-										      VALUES ('$servername', '$guid', '$nickname', '$datetime', '0', '0', '$xxccode', '$nservername')"); /*  > 0) */	
+										  
+$dbc->exec("INSERT INTO 'chat' ('servername', servermd5, 'guid', 'nickname', 'time', 'timeh', 'text', 'st1', 'st1days', 'st2', 'st2days', 'ip', 'geo') 
+				VALUES ('$servername', '$nservername', '$guid', '$nickname', '$datetime', '0', '0', '0', '0', '0', '0', '$i_ip',  '$xxccode')");
+										  
 				}		
 }catch(PDOException $e){die($e->getMessage());}						  
 ////////////////////////////////////////////////////////////////////////////////////				   
@@ -1166,7 +1170,7 @@ try{
 //////////////////////        CHAT SQLITE WALL ON SITE        ////////////////////// 			
 //////////////////////                                        ////////////////////// 
 ////////////////////////////////////////////////////////////////////////////////////			
-////////////////////////////////////////////////////////////////////////////////////						  
+////////////////////////////////////////////////////////////////////////////////////							  
 						  
 						  
 						  
@@ -1207,15 +1211,17 @@ try{
    $dbc = new PDO('sqlite:' . $chatdb);
              if(preg_match("/[\d]+[\d]{14,22}/",$guid)) 
 				{
-			$xxccode = ($record->country_code);		
+			$xxccode = ($record->country_code);	
 			
-		        $nservername = meessagee($servername);
+		    $nservername = meessagee($servername);
 			$nservername = matmat($nservername);
-			$nservername = md5($nservername);
-		     	
+			$nservername = md5($nservername); 
+			
 			$nickname = meessagee($nickname);
-			/* if ( */ $dbc->exec("INSERT INTO 'chat' ('servername', 'guid', 'nickname', 'time', 'text', 'status', 'geo', 'counts') 
-										      VALUES ('$servername', '$guid', '$nickname', '$datetime', '0', '0', '$xxccode', '$nservername')"); /*  > 0) */	
+
+$dbc->exec("INSERT INTO 'chat' ('servername', servermd5, 'guid', 'nickname', 'time', 'timeh', 'text', 'st1', 'st1days', 'st2', 'st2days', 'ip', 'geo') 
+				VALUES ('$servername', '$nservername', '$guid', '$nickname', '$datetime', '0', '0', '0', '0', '0', '0', '$i_ip',  '$xxccode')");
+										  
 				}		
 }catch(PDOException $e){die($e->getMessage());}						  
 ////////////////////////////////////////////////////////////////////////////////////				   
