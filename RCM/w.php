@@ -58,11 +58,7 @@ include($cpath . "ReCodMod/geoip_bases/MaxMD/timezone/timezone.php");
 //////////////////////                                        ////////////////////// 
 ////////////////////////////////////////////////////////////////////////////////////			
 ////////////////////////////////////////////////////////////////////////////////////	
-if (empty($chat_database_for_all_servers))
-          $chatdb = $cpath . 'ReCodMod/databases/chatdb.sqlite';
-        else
-          $chatdb = $chat_database_for_all_servers;
-
+$chatdb = $cpath . 'ReCodMod/databases/chatdb.sqlite';
 if (!file_exists($chatdb)){
 try
 {   
@@ -70,13 +66,18 @@ try
 	$dbc->exec('CREATE TABLE IF NOT EXISTS chat (
 			id INTEGER  NOT NULL PRIMARY KEY AUTOINCREMENT,
 			servername VARCHAR(255)  NOT NULL,
+			servermd5 varchar(50)  NOT NULL,
 			guid VARCHAR(255)  NOT NULL,
 			nickname VARCHAR(255)  NOT NULL,
 			time VARCHAR(255)  NOT NULL,
+			timeh VARCHAR(255)  NOT NULL,			
 			text VARCHAR(255)  NOT NULL,			
-			status VARCHAR(255)  NOT NULL,
-			geo VARCHAR(255)  NOT NULL,
-			counts varchar(50)  NOT NULL
+			st1 VARCHAR(255)  NOT NULL,
+			st1days VARCHAR(255)  NOT NULL,			
+			st2 VARCHAR(255)  NOT NULL,
+            st2days VARCHAR(255)  NOT NULL,			
+			ip VARCHAR(255)  NOT NULL,
+			geo VARCHAR(255)  NOT NULL
 	)');
 	$st = $dbc->query('SELECT image FROM chat');
 	$result = $st->fetchAll();
@@ -550,8 +551,6 @@ $pos = strpos($parseline, '');
 ////////////////////////////////////////////////////////////////////////////////////			
 if (strpos($msgO, 'QUICKMESSAGE_') === false){
 if(!empty($msgO)){
-if(empty($chatdbsize))
-	$chatdbsize = 10; // 10.MB	
 if (filesize($chatdb) > ($chatdbsize * 1000000)) 
   {
 AddToLog1("<br/>[".$datetime."]<font color='green'> Server :</font> <font color='silver'> Chat database $chatdbsize mb auto reset! </font> "); 
@@ -571,13 +570,18 @@ try
 	$dbc->exec('CREATE TABLE IF NOT EXISTS chat (
 			id INTEGER  NOT NULL PRIMARY KEY AUTOINCREMENT,
 			servername VARCHAR(255)  NOT NULL,
+			servermd5 varchar(50)  NOT NULL,
 			guid VARCHAR(255)  NOT NULL,
 			nickname VARCHAR(255)  NOT NULL,
 			time VARCHAR(255)  NOT NULL,
+			timeh VARCHAR(255)  NOT NULL,			
 			text VARCHAR(255)  NOT NULL,			
-			status VARCHAR(255)  NOT NULL,
-			geo VARCHAR(255)  NOT NULL,
-			counts varchar(50)  NOT NULL
+			st1 VARCHAR(255)  NOT NULL,
+			st1days VARCHAR(255)  NOT NULL,			
+			st2 VARCHAR(255)  NOT NULL,
+            st2days VARCHAR(255)  NOT NULL,			
+			ip VARCHAR(255)  NOT NULL,
+			geo VARCHAR(255)  NOT NULL
 	)');
 	$st = $dbc->query('SELECT image FROM chat');
 	$result = $st->fetchAll();
@@ -592,16 +596,16 @@ try{
    $dbc = new PDO('sqlite:' . $chatdb);
              if(preg_match("/[\d]+[\d]{14,22}/",$guidn)) 
 				{
- 			$nservername = meessagee($servername);
+			$nservername = meessagee($servername);
 			$nservername = matmat($nservername);
 			$nservername = md5($nservername);
 			
-			$dhgsj = preg_replace('/[^ a-zа-яё\d]/ui', '', $dhgsj);
-			/* if ( */ $dbc->exec("INSERT INTO 'chat' ('servername', 'guid', 'nickname', 'time', 'text', 'status', 'geo', 'counts') 
-										      VALUES ('$servername', '$guidn', '$dhgsj', '$datetime', '$msgO', '0', '0', '$nservername')"); /*  > 0) */	
-							
- 				
-						
+			$dhgsj = preg_replace('/[^ a-zа-яё\d]/ui', '', $dhgsj);	
+            $dayzstamp   = date('Y-m-d H');				
+			
+$dbc->exec("INSERT INTO 'chat' ('servername', servermd5, 'guid', 'nickname', 'time', 'timeh', 'text', 'st1', 'st1days', 'st2', 'st2days', 'ip', 'geo') 
+				VALUES ('$servername', '$nservername', '$guidn', '$dhgsj', '$datetime', '$dayzstamp', '$msgO', '0', '0', '0', '0', '0',  '0')");  
+
 				}		
 }catch(PDOException $e){die($e->getMessage());}  }}
 
@@ -866,8 +870,6 @@ try{
 ////////////////////////////////////////////////////////////////////////////////////			
 if (strpos($msgO, 'QUICKMESSAGE_') === false){
 if(!empty($msgO)){
-if(empty($chatdbsize))
-	$chatdbsize = 10; // 10.MB
 if (filesize($chatdb) > ($chatdbsize * 1000000)) 
   {
 AddToLog1("<br/>[".$datetime."]<font color='green'> Server :</font> <font color='silver'> Chat database $chatdbsize mb auto reset! </font> "); 
@@ -887,13 +889,18 @@ try
 	$dbc->exec('CREATE TABLE IF NOT EXISTS chat (
 			id INTEGER  NOT NULL PRIMARY KEY AUTOINCREMENT,
 			servername VARCHAR(255)  NOT NULL,
+			servermd5 varchar(50)  NOT NULL,
 			guid VARCHAR(255)  NOT NULL,
 			nickname VARCHAR(255)  NOT NULL,
 			time VARCHAR(255)  NOT NULL,
+			timeh VARCHAR(255)  NOT NULL,			
 			text VARCHAR(255)  NOT NULL,			
-			status VARCHAR(255)  NOT NULL,
-			geo VARCHAR(255)  NOT NULL,
-			counts varchar(50)  NOT NULL
+			st1 VARCHAR(255)  NOT NULL,
+			st1days VARCHAR(255)  NOT NULL,			
+			st2 VARCHAR(255)  NOT NULL,
+            st2days VARCHAR(255)  NOT NULL,			
+			ip VARCHAR(255)  NOT NULL,
+			geo VARCHAR(255)  NOT NULL
 	)');
 	$st = $dbc->query('SELECT image FROM chat');
 	$result = $st->fetchAll();
@@ -913,11 +920,12 @@ try{
 			$nservername = md5($nservername);
 			
 			$dhgsj = preg_replace('/[^ a-zа-яё\d]/ui', '', $dhgsj);
-			/* if ( */ $dbc->exec("INSERT INTO 'chat' ('servername', 'guid', 'nickname', 'time', 'text', 'status', 'geo', 'counts') 
-										      VALUES ('$servername', '$guidn', '$dhgsj', '$datetime', '$msgO', '0', '0', '$nservername')"); /*  > 0) */	
+            $dayzstamp   = date('Y-m-d H');			
+
+$dbc->exec("INSERT INTO 'chat' ('servername', servermd5, 'guid', 'nickname', 'time', 'timeh', 'text', 'st1', 'st1days', 'st2', 'st2days', 'ip', 'geo') 
+				VALUES ('$servername', '$nservername', '$guidn', '$dhgsj', '$datetime', '$dayzstamp', '$msgO', '0', '0', '0', '0', '0',  '0')");  
 				
- 			
-				
+										  
 				}		
 }catch(PDOException $e){die($e->getMessage());}  }}
 
@@ -927,8 +935,7 @@ try{
 //////////////////////        CHAT SQLITE WALL ON SITE        ////////////////////// 			
 //////////////////////                                        ////////////////////// 
 ////////////////////////////////////////////////////////////////////////////////////			
-////////////////////////////////////////////////////////////////////////////////////			      		      
-		      
+////////////////////////////////////////////////////////////////////////////////////		
                 AddToLog1clear("[" . $datetime . "] " . $dhgsj . " : " . $msgO . "");
   AddToLog1("<br/>[" . $datetime . "]<b>" . $dhgsj . "<SPAN class='tooltipmk'> : Guid : ".$guidn."</span></b> : " . $msgO . "");
                }
@@ -971,15 +978,16 @@ try{
 //////////////////////                                        ////////////////////// 
 ////////////////////////////////////////////////////////////////////////////////////			
 ////////////////////////////////////////////////////////////////////////////////////
-        { 	
+        else if (preg_match('/PS;/', $parseline, $xnon))
+		{ 	
 		
 		
 		
 $cccntx = substr_count($parseline,';');
 if($cccntx > 4)
-  list($noon, $admin_status2, $vip_status2, $pl_guid, $adminstatus, $pl_vip_days) = explode(';', $parseline);
+  list($noon, $st1, $st2, $pl_guid, $st1days, $st2days) = explode(';', $parseline);	
 else
-  list($noon, $pl_status, $pl_guid, $pl_vip_days) = explode(';', $parseline);
+  list($noon, $st1, $pl_guid, $st1days) = explode(';', $parseline);
 		   
 if(empty($chatdbsize))
 	$chatdbsize = 10; // 10.MB
@@ -1002,13 +1010,18 @@ try
 	$dbc->exec('CREATE TABLE IF NOT EXISTS chat (
 			id INTEGER  NOT NULL PRIMARY KEY AUTOINCREMENT,
 			servername VARCHAR(255)  NOT NULL,
+			servermd5 varchar(50)  NOT NULL,
 			guid VARCHAR(255)  NOT NULL,
 			nickname VARCHAR(255)  NOT NULL,
 			time VARCHAR(255)  NOT NULL,
+			timeh VARCHAR(255)  NOT NULL,			
 			text VARCHAR(255)  NOT NULL,			
-			status VARCHAR(255)  NOT NULL,
-			geo VARCHAR(255)  NOT NULL,
-			counts varchar(50)  NOT NULL
+			st1 VARCHAR(255)  NOT NULL,
+			st1days VARCHAR(255)  NOT NULL,			
+			st2 VARCHAR(255)  NOT NULL,
+            st2days VARCHAR(255)  NOT NULL,			
+			ip VARCHAR(255)  NOT NULL,
+			geo VARCHAR(255)  NOT NULL
 	)');
 	$st = $dbc->query('SELECT image FROM chat');
 	$result = $st->fetchAll();
@@ -1026,17 +1039,46 @@ try{
 			$nservername = meessagee($servername);
 			$nservername = matmat($nservername);
 			$nservername = md5($nservername);
-		 
-             if($cccntx > 4)
-			    $status_and_days = $admin_status2.'-'.$adminstatus.'-'.$vip_status2.'-'.$pl_vip_days;	 
-			 else
-			    $status_and_days = $pl_status.'-'.$pl_vip_days;						  
-										  
-			$dbc->exec("INSERT INTO 'chat' ('servername', 'guid', 'nickname', 'time', 'text', 'status', 'geo', 'counts') 
-										      VALUES ('$servername', '$pl_guid', '0', '$datetime', '0', '$status_and_days', '0', '$nservername')");  
+	 
+			 
+			if($cccntx > 4){
+
+			if ($st2days<1){
+				 $st2 = '0';	
+			     $st2days = '0';
+			           }
+					   
+			if ($st1days<1){
+				 $st1 = '0';	
+			     $st1days = '0';
+			           }					   
+			}
+			else 
+			{
+				
+			if ($st1days<1){
+				 $st1 = '0';	
+			     $st1days = '0';
+			           }				
+
+				 $st2 = '0';	
+			     $st2days = '0';
+			           			
+			}
+			 
+   $st1 = str_replace(' ', '', $st1);
+   $st2 = str_replace(' ', '', $st2);
+   $st1days = str_replace(' ', '', $st1days);
+   $st2days = str_replace(' ', '', $st2days);   
+ 
+			
+$dbc->exec("INSERT INTO 'chat' ('servername', servermd5, 'guid', 'nickname', 'time', 'timeh', 'text', 'st1', 'st1days', 'st2', 'st2days', 'ip', 'geo') 
+					VALUES ('$servername', '$nservername', '$pl_guid', '0', '$datetime', '0', '0', '$st1', '$st1days', '$st2', '$st2days', '0',  '0')");  
+											  			  
+											  
                               //echo '-' . $pl_status . '-' . $pl_guid . '-' . $pl_vip_days;
                                 						  
-		   $dbc->exec("UPDATE chat SET status='$status_and_days' WHERE guid='$pl_guid'");
+		   $dbc->exec("UPDATE chat SET st1='$st1',st1days='$st1days', st2='$st2', st2='$st2days' WHERE guid='$pl_guid'");
 				
 				}		
 }catch(PDOException $e){die($e->getMessage());} 
@@ -1047,7 +1089,7 @@ try{
 //////////////////////    CHAT [VIP] SQLITE WALL ON SITE      ////////////////////// 			
 //////////////////////                                        ////////////////////// 
 ////////////////////////////////////////////////////////////////////////////////////			
-////////////////////////////////////////////////////////////////////////////////////	      
+////////////////////////////////////////////////////////////////////////////////////		 	      
         else if (preg_match('/Q;/', $parseline, $xnon))
          {
           require $cpath . 'ReCodMod/plugins/log_reader_stats_updater.php';
