@@ -529,6 +529,22 @@ $string = str_replace(array("J;"), '^3Welcome % ', $string ); //Join
 $string = str_replace(array("\r\n", "\n", "\r"), "     \n", $string);
 return $string . "";
 }}
+else{
+ function delxxxc($string) {
+$string = preg_replace('/([0-9]+\\:[0-9]+)/', '', $string);
+//$string = str_replace(array(" "), ' % ', $string ); //NOVOEEEEEEEEEEEEEEEEE S CHATA
+//$string = str_replace(array(" "), ' % ', $string );    //NOVOEEEEEEEEEEEEEEEEE S CONSOLI
+$string = str_replace(array(";"), ' % ', $string ); //ESLI V ANSI 
+//$string = str_replace(array(": "), ' % ', $string ); //ESLI V ANSI
+//$string = str_replace(array(""), ' % ', $string ); //ESLI V ANSI 
+$string = str_replace(array("say;"), '', $string );
+$string = str_replace(array("sayteam;"), '', $string );
+$string = str_replace(array("J;"), '^3Welcome % ', $string ); //Join
+$string = preg_replace('/([0-9]+\\;[0-9]+)\\;/', '', $string);
+$string = str_replace(array("\r\n", "\n", "\r"), "     \n", $string);
+//$string = str_replace(array("\r\n", "\n", "\r", "$"), "     \n", $string);
+return $string . "";
+}}
 
  
  function infod($string) {
