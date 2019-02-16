@@ -1078,7 +1078,10 @@ $dbc->exec("INSERT INTO 'chat' ('servername', servermd5, 'guid', 'nickname', 'ti
 											  
                               //echo '-' . $pl_status . '-' . $pl_guid . '-' . $pl_vip_days;
                                 						  
+		            if($cccntx > 4)                    						  
 		   $dbc->exec("UPDATE chat SET st1='$st1',st1days='$st1days', st2='$st2', st2='$st2days' WHERE guid='$pl_guid'");
+	         else
+		$dbc->exec("UPDATE chat SET st1='$st1',st1days='$st1days' WHERE guid='$pl_guid'"); 
 				
 				}		
 }catch(PDOException $e){die($e->getMessage());} 
