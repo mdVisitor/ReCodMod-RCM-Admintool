@@ -12,7 +12,7 @@ $mplogfile = "C:\Games\Call of Duty 4 - Modern Warfare\mods\promodzzz\games_mp.l
 
 
 //=======================  CHAT SqLite3 Database Limit  ====================
-$chatdbsize = 10; // 10.MB
+$chatdbsize = 100; // 100.MB
 $chat_database_for_all_servers = '';
  
 
