@@ -601,7 +601,7 @@ try{
 			$nservername = md5($nservername);
 			
 			$dhgsj = preg_replace('/[^ a-zа-яё\d]/ui', '', $dhgsj);	
-            $dayzstamp   = date('Y-m-d H');				
+            $dayzstamp   = date('Y-m-d');				
 			
 $dbc->exec("INSERT INTO 'chat' ('servername', servermd5, 'guid', 'nickname', 'time', 'timeh', 'text', 'st1', 'st1days', 'st2', 'st2days', 'ip', 'geo') 
 				VALUES ('$servername', '$nservername', '$guidn', '$dhgsj', '$datetime', '$dayzstamp', '$msgO', '0', '0', '0', '0', '0',  '0')");  
@@ -920,7 +920,7 @@ try{
 			$nservername = md5($nservername);
 			
 			$dhgsj = preg_replace('/[^ a-zа-яё\d]/ui', '', $dhgsj);
-            $dayzstamp   = date('Y-m-d H');			
+            $dayzstamp   = date('Y-m-d');			
 
 $dbc->exec("INSERT INTO 'chat' ('servername', servermd5, 'guid', 'nickname', 'time', 'timeh', 'text', 'st1', 'st1days', 'st2', 'st2days', 'ip', 'geo') 
 				VALUES ('$servername', '$nservername', '$guidn', '$dhgsj', '$datetime', '$dayzstamp', '$msgO', '0', '0', '0', '0', '0',  '0')");  
