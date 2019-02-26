@@ -951,7 +951,18 @@ VALUES ('$x4vvv','999','1','1','0','0','0','0','$date','','','$nickname','$guid'
 ////////////////////////////////////////////////////////////////////////////////////			
 ////////////////////////////////////////////////////////////////////////////////////						  
 try{
-   $dbc = new PDO('sqlite:' . $chatdb);
+         if(empty($Msql_support))
+    $dbc = new PDO('sqlite:' . $chatdb);
+      else
+	  {	  	  
+    $dsn = "mysql:host=$host_adress;dbname=$db_name;charset=$charset_db";
+    $opt = [
+        PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
+        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+        PDO::ATTR_EMULATE_PREPARES   => false,
+    ];
+    $dbc = new PDO($dsn, $db_user, $db_pass, $opt);			  	  
+	  }
              if(preg_match("/[\d]+[\d]{14,22}/",$guid)) 
 				{
 			$xxccode = ($record->country_code);	
@@ -1006,7 +1017,18 @@ require $cpath .  'cfg/languages/en.lng.php';
 ////////////////////////////////////////////////////////////////////////////////////			
 ////////////////////////////////////////////////////////////////////////////////////						  
 try{
-   $dbc = new PDO('sqlite:' . $chatdb);
+         if(empty($Msql_support))
+    $dbc = new PDO('sqlite:' . $chatdb);
+      else
+	  {	  	  
+    $dsn = "mysql:host=$host_adress;dbname=$db_name;charset=$charset_db";
+    $opt = [
+        PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
+        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+        PDO::ATTR_EMULATE_PREPARES   => false,
+    ];
+    $dbc = new PDO($dsn, $db_user, $db_pass, $opt);			  	  
+	  }
              if(preg_match("/[\d]+[\d]{14,22}/",$guid)) 
 				{
 			$xxccode = ($record->country_code);		
@@ -1148,7 +1170,18 @@ VALUES ('$x4vvv','999','1','1','0','0','0','0','$date','','','$nickname','$guid'
 ////////////////////////////////////////////////////////////////////////////////////			
 ////////////////////////////////////////////////////////////////////////////////////						  
 try{
-   $dbc = new PDO('sqlite:' . $chatdb);
+         if(empty($Msql_support))
+    $dbc = new PDO('sqlite:' . $chatdb);
+      else
+	  {	  	  
+    $dsn = "mysql:host=$host_adress;dbname=$db_name;charset=$charset_db";
+    $opt = [
+        PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
+        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+        PDO::ATTR_EMULATE_PREPARES   => false,
+    ];
+    $dbc = new PDO($dsn, $db_user, $db_pass, $opt);			  	  
+	  }
              if(preg_match("/[\d]+[\d]{14,22}/",$guid)) 
 				{
 			$xxccode = ($record->country_code);		
@@ -1208,7 +1241,18 @@ rcon('say ^3' . $welcome_x . ' ^7' . $nickname . ' ^3'.$infoofrom.' ^6[^2' . $xx
 ////////////////////////////////////////////////////////////////////////////////////			
 ////////////////////////////////////////////////////////////////////////////////////						  
 try{
-   $dbc = new PDO('sqlite:' . $chatdb);
+         if(empty($Msql_support))
+    $dbc = new PDO('sqlite:' . $chatdb);
+      else
+	  {	  	  
+    $dsn = "mysql:host=$host_adress;dbname=$db_name;charset=$charset_db";
+    $opt = [
+        PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
+        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+        PDO::ATTR_EMULATE_PREPARES   => false,
+    ];
+    $dbc = new PDO($dsn, $db_user, $db_pass, $opt);			  	  
+	  }
              if(preg_match("/[\d]+[\d]{14,22}/",$guid)) 
 				{
 			$xxccode = ($record->country_code);	
