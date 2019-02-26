@@ -639,8 +639,28 @@ try{
 			$dhgsj = preg_replace('/[^ a-zа-яё\d]/ui', '', $dhgsj);	
             $dayzstamp   = date('Y-m-d');				
 			
-$dbc->exec("INSERT INTO 'chat' ('servername', servermd5, 'guid', 'nickname', 'time', 'timeh', 'text', 'st1', 'st1days', 'st2', 'st2days', 'ip', 'geo') 
-				VALUES ('$servername', '$nservername', '$guidn', '$dhgsj', '$datetime', '$dayzstamp', '$msgO', '0', '0', '0', '0', '0',  '0')");  
+
+$data = [
+    'servername' => $servername,
+    'servermd5' => $nservername,
+    'guid' => $guidn,
+	'nickname' => $dhgsj,
+	'time' => $datetime,
+	'timeh' => $dayzstamp,
+	'text' => $msgO,
+	'st1' => '0',
+	'st1days' => '0',
+	'st2' => '0',
+	'st2days' => '0',
+    'ip' => '0',
+	'geo' => '0',
+];
+
+$sql = "INSERT INTO chat (servername, servermd5, guid, nickname, time, timeh, text, st1, st1days, st2, st2days, ip, geo) 
+					VALUES (:servername, :servermd5, :guid, :nickname, :time, :timeh, :text, :st1, :st1days, :st2, :st2days, :ip, :geo)";
+
+$stmt= $dbc->prepare($sql);
+$stmt->execute($data);	
 
 				}		
 }catch(PDOException $e){die($e->getMessage());}  }}
@@ -1151,9 +1171,27 @@ try{
    $st1days = str_replace(' ', '', $st1days);
    $st2days = str_replace(' ', '', $st2days);   
  
-			
-$dbc->exec("INSERT INTO 'chat' ('servername', servermd5, 'guid', 'nickname', 'time', 'timeh', 'text', 'st1', 'st1days', 'st2', 'st2days', 'ip', 'geo') 
-					VALUES ('$servername', '$nservername', '$pl_guid', '0', '$datetime', '0', '0', '$st1', '$st1days', '$st2', '$st2days', '0',  '0')");  
+$data = [
+    'servername' => $servername,
+    'servermd5' => $nservername,
+    'guid' => $pl_guid,
+	'nickname' => '0',
+	'time' => $datetime,
+	'timeh' => '0',
+	'text' => '0',
+	'st1' => $st1,
+	'st1days' => $st1days,
+	'st2' => $st2,
+	'st2days' => $st2days,
+    'ip' => '0',
+	'geo' => '0',
+];
+
+$sql = "INSERT INTO chat (servername, servermd5, guid, nickname, time, timeh, text, st1, st1days, st2, st2days, ip, geo) 
+					VALUES (:servername, :servermd5, :guid, :nickname, :time, :timeh, :text, :st1, :st1days, :st2, :st2days, :ip, :geo)";
+
+$stmt= $dbc->prepare($sql);
+$stmt->execute($data); 
 											  			  
 											  
                               //echo '-' . $pl_status . '-' . $pl_guid . '-' . $pl_vip_days;
