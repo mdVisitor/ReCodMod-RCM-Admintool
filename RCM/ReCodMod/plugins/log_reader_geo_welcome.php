@@ -971,9 +971,27 @@ try{
 			$nservername = matmat($nservername);
 			$nservername = md5($nservername); 
 			
-			$nickname = meessagee($nickname);
-$dbc->exec("INSERT INTO 'chat' ('servername', servermd5, 'guid', 'nickname', 'time', 'timeh', 'text', 'st1', 'st1days', 'st2', 'st2days', 'ip', 'geo') 
-				VALUES ('$servername', '$nservername', '$guid', '$nickname', '$datetime', '0', '0', '0', '0', '0', '0', '$i_ip',  '$xxccode')");
+$data = [
+    'servername' => $servername,
+    'servermd5' => $nservername,
+    'guid' => $guid,
+	'nickname' => $nickname,
+	'time' => $datetime,
+	'timeh' => '0',
+	'text' => '0',
+	'st1' => '0',
+	'st1days' => '0',
+	'st2' => '0',
+	'st2days' => '0',
+    'ip' => $i_ip,
+	'geo' => $xxccode,
+];
+
+$sql = "INSERT INTO chat (servername, servermd5, guid, nickname, time, timeh, text, st1, st1days, st2, st2days, ip, geo) 
+					VALUES (:servername, :servermd5, :guid, :nickname, :time, :timeh, :text, :st1, :st1days, :st2, :st2days, :ip, :geo)";
+
+$stmt= $dbc->prepare($sql);
+$stmt->execute($data);	
 				}		
 }catch(PDOException $e){die($e->getMessage());}						  
 ////////////////////////////////////////////////////////////////////////////////////				   
@@ -1039,8 +1057,27 @@ try{
 			
 			$nickname = meessagee($nickname);
 
-$dbc->exec("INSERT INTO 'chat' ('servername', servermd5, 'guid', 'nickname', 'time', 'timeh', 'text', 'st1', 'st1days', 'st2', 'st2days', 'ip', 'geo') 
-				VALUES ('$servername', '$nservername', '$guid', '$nickname', '$datetime', '0', '0', '0', '0', '0', '0', '$i_ip',  '$xxccode')");  
+$data = [
+    'servername' => $servername,
+    'servermd5' => $nservername,
+    'guid' => $guid,
+	'nickname' => $nickname,
+	'time' => $datetime,
+	'timeh' => '0',
+	'text' => '0',
+	'st1' => '0',
+	'st1days' => '0',
+	'st2' => '0',
+	'st2days' => '0',
+    'ip' => $i_ip,
+	'geo' => $xxccode,
+];
+
+$sql = "INSERT INTO chat (servername, servermd5, guid, nickname, time, timeh, text, st1, st1days, st2, st2days, ip, geo) 
+					VALUES (:servername, :servermd5, :guid, :nickname, :time, :timeh, :text, :st1, :st1days, :st2, :st2days, :ip, :geo)";
+
+$stmt= $dbc->prepare($sql);
+$stmt->execute($data);	  
 										  
 				}		
 }catch(PDOException $e){die($e->getMessage());}						  
@@ -1192,8 +1229,27 @@ try{
 			
 			$nickname = meessagee($nickname); 
 										  
-$dbc->exec("INSERT INTO 'chat' ('servername', servermd5, 'guid', 'nickname', 'time', 'timeh', 'text', 'st1', 'st1days', 'st2', 'st2days', 'ip', 'geo') 
-				VALUES ('$servername', '$nservername', '$guid', '$nickname', '$datetime', '0', '0', '0', '0', '0', '0', '$i_ip',  '$xxccode')");
+$data = [
+    'servername' => $servername,
+    'servermd5' => $nservername,
+    'guid' => $guid,
+	'nickname' => $nickname,
+	'time' => $datetime,
+	'timeh' => '0',
+	'text' => '0',
+	'st1' => '0',
+	'st1days' => '0',
+	'st2' => '0',
+	'st2days' => '0',
+    'ip' => $i_ip,
+	'geo' => $xxccode,
+];
+
+$sql = "INSERT INTO chat (servername, servermd5, guid, nickname, time, timeh, text, st1, st1days, st2, st2days, ip, geo) 
+					VALUES (:servername, :servermd5, :guid, :nickname, :time, :timeh, :text, :st1, :st1days, :st2, :st2days, :ip, :geo)";
+
+$stmt= $dbc->prepare($sql);
+$stmt->execute($data);	
 										  
 				}		
 }catch(PDOException $e){die($e->getMessage());}						  
@@ -1263,8 +1319,27 @@ try{
 			
 			$nickname = meessagee($nickname);
 
-$dbc->exec("INSERT INTO 'chat' ('servername', servermd5, 'guid', 'nickname', 'time', 'timeh', 'text', 'st1', 'st1days', 'st2', 'st2days', 'ip', 'geo') 
-				VALUES ('$servername', '$nservername', '$guid', '$nickname', '$datetime', '0', '0', '0', '0', '0', '0', '$i_ip',  '$xxccode')");
+$data = [
+    'servername' => $servername,
+    'servermd5' => $nservername,
+    'guid' => $guid,
+	'nickname' => $nickname,
+	'time' => $datetime,
+	'timeh' => '0',
+	'text' => '0',
+	'st1' => '0',
+	'st1days' => '0',
+	'st2' => '0',
+	'st2days' => '0',
+    'ip' => $i_ip,
+	'geo' => $xxccode,
+];
+
+$sql = "INSERT INTO chat (servername, servermd5, guid, nickname, time, timeh, text, st1, st1days, st2, st2days, ip, geo) 
+					VALUES (:servername, :servermd5, :guid, :nickname, :time, :timeh, :text, :st1, :st1days, :st2, :st2days, :ip, :geo)";
+
+$stmt= $dbc->prepare($sql);
+$stmt->execute($data);	
 										  
 				}		
 }catch(PDOException $e){die($e->getMessage());}						  
