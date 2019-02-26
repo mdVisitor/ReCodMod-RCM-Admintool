@@ -65,7 +65,18 @@ else
 if (!file_exists($chatdb)){
 try
 {   
+    if(empty($Msql_support))
     $dbc = new PDO('sqlite:' . $chatdb);
+      else
+	  {	  	  
+    $dsn = "mysql:host=$host_adress;dbname=$db_name;charset=$charset_db";
+    $opt = [
+        PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
+        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+        PDO::ATTR_EMULATE_PREPARES   => false,
+    ];
+    $dbc = new PDO($dsn, $db_user, $db_pass, $opt);			  	  
+	  }
 	$dbc->exec('CREATE TABLE IF NOT EXISTS chat (
 			id INTEGER  NOT NULL PRIMARY KEY AUTOINCREMENT,
 			servername VARCHAR(255)  NOT NULL,
@@ -569,7 +580,18 @@ if (!copy($file, $newfile."_".$datetime.".db")) {
 if (!file_exists($chatdb)){
 try
 {   
+    if(empty($Msql_support))
     $dbc = new PDO('sqlite:' . $chatdb);
+      else
+	  {	  	  
+    $dsn = "mysql:host=$host_adress;dbname=$db_name;charset=$charset_db";
+    $opt = [
+        PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
+        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+        PDO::ATTR_EMULATE_PREPARES   => false,
+    ];
+    $dbc = new PDO($dsn, $db_user, $db_pass, $opt);			  	  
+	  }
 	$dbc->exec('CREATE TABLE IF NOT EXISTS chat (
 			id INTEGER  NOT NULL PRIMARY KEY AUTOINCREMENT,
 			servername VARCHAR(255)  NOT NULL,
@@ -888,7 +910,18 @@ if (!copy($file, $newfile."_".$datetime.".db")) {
 if (!file_exists($chatdb)){
 try
 {   
+        if(empty($Msql_support))
     $dbc = new PDO('sqlite:' . $chatdb);
+      else
+	  {	  	  
+    $dsn = "mysql:host=$host_adress;dbname=$db_name;charset=$charset_db";
+    $opt = [
+        PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
+        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+        PDO::ATTR_EMULATE_PREPARES   => false,
+    ];
+    $dbc = new PDO($dsn, $db_user, $db_pass, $opt);			  	  
+	  }
 	$dbc->exec('CREATE TABLE IF NOT EXISTS chat (
 			id INTEGER  NOT NULL PRIMARY KEY AUTOINCREMENT,
 			servername VARCHAR(255)  NOT NULL,
@@ -915,7 +948,18 @@ try
 	}
 	
 try{
-   $dbc = new PDO('sqlite:' . $chatdb);
+      if(empty($Msql_support))
+    $dbc = new PDO('sqlite:' . $chatdb);
+      else
+	  {	  	  
+    $dsn = "mysql:host=$host_adress;dbname=$db_name;charset=$charset_db";
+    $opt = [
+        PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
+        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+        PDO::ATTR_EMULATE_PREPARES   => false,
+    ];
+    $dbc = new PDO($dsn, $db_user, $db_pass, $opt);			  	  
+	  }
              if(preg_match("/[\d]+[\d]{14,22}/",$guidn)) 
 				{
 			$nservername = meessagee($servername);
@@ -1009,7 +1053,18 @@ if (!copy($file, $newfile."_".$datetime.".db")) {
 if (!file_exists($chatdb)){
 try
 {   
+          if(empty($Msql_support))
     $dbc = new PDO('sqlite:' . $chatdb);
+      else
+	  {	  	  
+    $dsn = "mysql:host=$host_adress;dbname=$db_name;charset=$charset_db";
+    $opt = [
+        PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
+        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+        PDO::ATTR_EMULATE_PREPARES   => false,
+    ];
+    $dbc = new PDO($dsn, $db_user, $db_pass, $opt);			  	  
+	  }
 	$dbc->exec('CREATE TABLE IF NOT EXISTS chat (
 			id INTEGER  NOT NULL PRIMARY KEY AUTOINCREMENT,
 			servername VARCHAR(255)  NOT NULL,
@@ -1036,7 +1091,18 @@ try
 	}
 	
 try{
-   $dbc = new PDO('sqlite:' . $chatdb);
+      if(empty($Msql_support))
+    $dbc = new PDO('sqlite:' . $chatdb);
+      else
+	  {	  	  
+    $dsn = "mysql:host=$host_adress;dbname=$db_name;charset=$charset_db";
+    $opt = [
+        PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
+        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+        PDO::ATTR_EMULATE_PREPARES   => false,
+    ];
+    $dbc = new PDO($dsn, $db_user, $db_pass, $opt);			  	  
+	  }
              if(preg_match("/[\d]+[\d]{14,22}/",$pl_guid)) 
 				{
 			$nservername = meessagee($servername);
